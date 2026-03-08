@@ -296,8 +296,8 @@ M729.704739 654.877155 C734.403713 657.655841 737.888821 660.840656 736.691067 6
     <p class="sec-sub rv d1" style="margin:0 auto;text-align:center;">No subscriptions. No hidden fees. Pay once, learn for life.</p>
   </div>
   <div class="prg">
-    <div class="pc rv"><div class="pc-nm">Monthly Access</div><div class="pc-pr"><sup>₹</sup>999</div><div class="pc-pe">per month, cancel anytime</div><ul class="pc-fl"><li>20 sessions × 30 min</li><li>6 structured phases</li><li>Project feedback</li><li>Community access</li></ul><button class="btn-pc bpg">Get Monthly</button></div>
-    <div class="pc feat rv d1"><div class="pc-badge">Best Value</div><div class="pc-nm">Lifetime Access</div><div class="pc-pr"><sup>₹</sup>1,499</div><div class="pc-pe">one-time payment</div><ul class="pc-fl"><li>20 sessions × 30 min</li><li>6 structured phases</li><li>Project feedback</li><li>Community access</li><li>All future updates</li><li>Resource library</li><li>Printable worksheets</li></ul><button class="btn-pc bpp">Get Lifetime Access</button></div>
+    <div class="pc rv"><div class="pc-nm">Monthly Access</div><div class="pc-pr"><sup>₹</sup>999</div><div class="pc-pe">per month, cancel anytime</div><ul class="pc-fl"><li>20 sessions × 30 min</li><li>6 structured phases</li><li>Project feedback</li><li>Community access</li></ul><button class="btn-pc bpg" data-plan="monthly" data-amount="99900" data-label="Monthly Access — ₹999">Get Monthly</button></div>
+    <div class="pc feat rv d1"><div class="pc-badge">Best Value</div><div class="pc-nm">Lifetime Access</div><div class="pc-pr"><sup>₹</sup>1,499</div><div class="pc-pe">one-time payment</div><ul class="pc-fl"><li>20 sessions × 30 min</li><li>6 structured phases</li><li>Project feedback</li><li>Community access</li><li>All future updates</li><li>Resource library</li><li>Printable worksheets</li></ul><button class="btn-pc bpp" data-plan="lifetime" data-amount="149900" data-label="Lifetime Access — ₹1,499">Get Lifetime Access</button></div>
   </div>
   <p style="text-align:center;margin-top:28px;font-size:14px;color:var(--dim);">30-day money-back guarantee. No questions asked.</p>
 </section>
@@ -309,9 +309,7 @@ M729.704739 654.877155 C734.403713 657.655841 737.888821 660.840656 736.691067 6
     <h2 class="rv">Art in <span class="hic">the wild.</span></h2>
     <p class="sec-sub rv d1">Real doodles by real students — straight from the course.</p>
   </div>
-  <div class="gal-grid" id="galGrid">
-    <p style="text-align:center;padding:40px;color:var(--dim);grid-column:1/-1">Loading…</p>
-  </div>
+  <div class="gal-marquee-wrap" id="galGrid"></div>
 </section>
 
 <!-- Lightbox -->
@@ -386,44 +384,171 @@ M729.704739 654.877155 C734.403713 657.655841 737.888821 660.840656 736.691067 6
   <div class="enroll-box">
     <button class="enroll-close" aria-label="Close">&#10005;</button>
     <div class="enroll-head">
-      <div class="pc-badge" style="position:static;transform:none;display:inline-flex;margin-bottom:18px;">Lifetime Access — ₹1,499</div>
+      <div class="pc-badge" id="enroll-plan-badge" style="position:static;transform:none;display:inline-flex;margin-bottom:18px;">Lifetime Access — ₹1,499</div>
       <h2>Almost there!</h2>
       <p>Fill in your details and we'll get you started.</p>
     </div>
     <form id="enroll-form" novalidate>
+
+      <div class="ef-section-label">Your details</div>
       <div class="ef-group">
         <label for="ef-name">Full Name <span class="ef-req">*</span></label>
         <input type="text" id="ef-name" placeholder="Your full name" autocomplete="name">
         <div class="ef-err" id="err-name">Please enter your name.</div>
       </div>
-      <div class="ef-group">
-        <label for="ef-age">Age <span class="ef-req">*</span></label>
-        <input type="number" id="ef-age" placeholder="Your age" min="1" max="120">
-        <div class="ef-err" id="err-age">Please enter a valid age.</div>
-      </div>
-      <div class="ef-group">
-        <label for="ef-phone">Phone Number <span class="ef-req">*</span></label>
-        <input type="tel" id="ef-phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
-        <div class="ef-err" id="err-phone">Please enter your phone number.</div>
-      </div>
-      <div class="ef-group">
-        <label>Do you need a kit? <span class="ef-req">*</span></label>
-        <div class="ef-toggle">
-          <label class="ef-opt">
-            <input type="radio" name="kit" value="yes">
-            <span>Yes, send me a kit</span>
-          </label>
-          <label class="ef-opt">
-            <input type="radio" name="kit" value="no">
-            <span>No, I have my own supplies</span>
-          </label>
+      <div class="ef-row2">
+        <div class="ef-group">
+          <label for="ef-age">Age <span class="ef-req">*</span></label>
+          <input type="number" id="ef-age" placeholder="Age" min="1" max="120">
+          <div class="ef-err" id="err-age">Please enter a valid age.</div>
         </div>
-        <div class="ef-err" id="err-kit">Please select a kit preference.</div>
+        <div class="ef-group">
+          <label for="ef-phone">Phone <span class="ef-req">*</span></label>
+          <input type="tel" id="ef-phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+          <div class="ef-err" id="err-phone">Please enter your phone number.</div>
+        </div>
       </div>
+
+      <div class="ef-section-label" style="margin-top:6px;">Enhance your experience <span class="ef-opt-tag">Optional</span></div>
+      <div class="addon-cards">
+
+        <!-- Art Kit -->
+        <div class="addon-card" id="acard-kit">
+          <div class="addon-card-inner">
+            <div class="addon-card-top">
+              <div class="addon-check">
+                <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
+                  <path class="check-path" d="M1 4.5L4 7.5L10 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="addon-price-tag">+₹499</div>
+            </div>
+            <div class="addon-gfx">
+              <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                <!-- Pencil -->
+                <rect x="22" y="5" width="8" height="30" rx="2" fill="rgba(255,190,11,0.18)" stroke="var(--gold)" stroke-width="1.5"/>
+                <polygon points="22,35 30,35 26,44" fill="var(--gold)" opacity="0.75"/>
+                <rect x="22" y="5" width="8" height="6" rx="2" fill="rgba(255,53,32,0.25)" stroke="var(--coral)" stroke-width="1.5"/>
+                <!-- Brush -->
+                <rect x="7" y="7" width="6" height="26" rx="2.5" fill="rgba(77,191,255,0.18)" stroke="var(--sky)" stroke-width="1.5"/>
+                <ellipse cx="10" cy="39" rx="4.5" ry="6" fill="rgba(77,191,255,0.35)" stroke="var(--sky)" stroke-width="1.5"/>
+                <!-- Sketchbook -->
+                <rect x="37" y="12" width="14" height="22" rx="2" fill="rgba(61,255,160,0.12)" stroke="var(--mint)" stroke-width="1.5"/>
+                <rect x="37" y="12" width="3" height="22" rx="1.5" fill="rgba(61,255,160,0.25)"/>
+                <line x1="42" y1="19" x2="48" y2="19" stroke="var(--mint)" stroke-width="1" opacity="0.6"/>
+                <line x1="42" y1="23" x2="48" y2="23" stroke="var(--mint)" stroke-width="1" opacity="0.6"/>
+                <line x1="42" y1="27" x2="46" y2="27" stroke="var(--mint)" stroke-width="1" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="addon-title">Art Starter Kit</div>
+            <div class="addon-desc">Everything you need, shipped to your door.</div>
+            <div class="addon-items-list">
+              <div class="addon-item"><span class="adi-dot"></span>Brush Pen</div>
+              <div class="addon-item"><span class="adi-dot"></span>Technical Pen</div>
+              <div class="addon-item"><span class="adi-dot"></span>Mechanical Pencil</div>
+              <div class="addon-item"><span class="adi-dot"></span>Sketchbook</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- T-Shirt -->
+        <div class="addon-card" id="acard-tee">
+          <div class="addon-card-inner">
+            <div class="addon-card-top">
+              <div class="addon-check">
+                <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
+                  <path class="check-path" d="M1 4.5L4 7.5L10 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="addon-price-tag">+₹499</div>
+            </div>
+            <div class="addon-gfx addon-gfx-tee">
+              <img src="doodle/t-shirt.svg" width="58" height="58" alt="Doo Doodle Tee" class="tee-img">
+            </div>
+            <div class="addon-title">Doo Doodle Tee</div>
+            <div class="addon-desc">Wear your creativity. Limited edition.</div>
+            <div class="addon-items-list">
+              <div class="addon-item"><span class="adi-dot" style="background:var(--violet)"></span>100% Cotton</div>
+              <div class="addon-item"><span class="adi-dot" style="background:var(--violet)"></span>Original doodle print</div>
+              <div class="addon-item"><span class="adi-dot" style="background:var(--violet)"></span>Unisex fit</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.addon-cards -->
+
+      <!-- T-Shirt Size — revealed when tee is selected -->
+      <div class="tee-size-section" id="tee-size-section">
+        <div class="ef-section-label" style="margin-bottom:10px;">
+          Select your size <span class="ef-req">*</span>
+        </div>
+        <div class="size-pills">
+          <div class="size-pill" data-size="XS">XS</div>
+          <div class="size-pill" data-size="S">S</div>
+          <div class="size-pill" data-size="M">M</div>
+          <div class="size-pill" data-size="L">L</div>
+          <div class="size-pill" data-size="XL">XL</div>
+          <div class="size-pill" data-size="XXL">XXL</div>
+        </div>
+        <div class="ef-err" id="err-tee-size">Please select a size.</div>
+      </div>
+
+      <!-- Shipping Address — revealed when kit or tee is selected -->
+      <div class="addr-section" id="addr-section">
+        <div class="addr-heading">
+          <svg width="13" height="16" viewBox="0 0 13 16" fill="none"><path d="M6.5 0C4.01 0 2 2.01 2 4.5C2 8.25 6.5 16 6.5 16C6.5 16 11 8.25 11 4.5C11 2.01 8.99 0 6.5 0ZM6.5 6.5C5.4 6.5 4.5 5.6 4.5 4.5C4.5 3.4 5.4 2.5 6.5 2.5C7.6 2.5 8.5 3.4 8.5 4.5C8.5 5.6 7.6 6.5 6.5 6.5Z" fill="var(--coral)"/></svg>
+          Delivery address
+        </div>
+        <div class="ef-group">
+          <label for="ef-addr">Street / Flat / Area <span class="ef-req">*</span></label>
+          <textarea id="ef-addr" class="ef-textarea" placeholder="House no., street, area, landmark…" rows="2"></textarea>
+          <div class="ef-err" id="err-addr">Please enter your delivery address.</div>
+        </div>
+        <div class="ef-row2">
+          <div class="ef-group">
+            <label for="ef-city">City <span class="ef-req">*</span></label>
+            <input type="text" id="ef-city" placeholder="City">
+            <div class="ef-err" id="err-city">Please enter your city.</div>
+          </div>
+          <div class="ef-group">
+            <label for="ef-state">State <span class="ef-req">*</span></label>
+            <input type="text" id="ef-state" placeholder="State">
+            <div class="ef-err" id="err-state">Please enter your state.</div>
+          </div>
+        </div>
+        <div class="ef-group" style="max-width:180px;">
+          <label for="ef-pin">PIN Code <span class="ef-req">*</span></label>
+          <input type="text" id="ef-pin" placeholder="6-digit PIN" maxlength="6" inputmode="numeric" pattern="[0-9]{6}">
+          <div class="ef-err" id="err-pin">Please enter a valid 6-digit PIN.</div>
+        </div>
+      </div><!-- /.addr-section -->
+
+      <!-- Price Summary -->
+      <div class="price-summary">
+        <div class="ps-row">
+          <span id="ps-course-label">Lifetime Access</span>
+          <span id="ps-base-price">₹1,499</span>
+        </div>
+        <div class="ps-addon-row" id="ps-kit-row">
+          <span>+ Art Starter Kit</span>
+          <span>₹499</span>
+        </div>
+        <div class="ps-addon-row" id="ps-tee-row">
+          <span>+ Doo Doodle Tee</span>
+          <span>₹499</span>
+        </div>
+        <div class="ps-divider"></div>
+        <div class="ps-total-row">
+          <span>Total</span>
+          <span id="ps-total-amount">₹1,499</span>
+        </div>
+      </div>
+
       <button type="submit" class="btn-pri ef-submit">
-        Confirm Enrolment
+        Pay <span id="ef-pay-label">₹1,499</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+
     </form>
   </div>
 </div>
@@ -466,6 +591,7 @@ M729.704739 654.877155 C734.403713 657.655841 737.888821 660.840656 736.691067 6
   </div>
 </div>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/intro.js"></script>
 <script src="js/cursor.js"></script>

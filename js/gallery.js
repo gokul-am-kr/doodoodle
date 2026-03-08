@@ -1,59 +1,127 @@
 /* ══════════════════════════════════════════════════
-   GALLERY IMAGES
-   ► Drop images into the gallery/ folder
-   ► Add the filename to the array below
-   ► Works when opening the file directly (no server needed)
+   GALLERY — dual marquee rows
+   ─────────────────────────────────────────────────
+   OPTION A — Google Drive folder (auto-loads all images):
+     1. Create a folder in Google Drive
+     2. Right-click → Share → "Anyone with the link" → Viewer
+     3. Copy the folder ID from the URL:
+        drive.google.com/drive/folders/THIS_PART_IS_THE_ID
+     4. Go to console.cloud.google.com → New project
+        → Enable "Google Drive API"
+        → Credentials → Create API Key
+        → Restrict it to "HTTP referrers" → your domain
+     5. Paste both below and leave GALLERY_FILES empty
+
+   OPTION B — local files:
+     Leave DRIVE_FOLDER_ID empty, add filenames to GALLERY_FILES
 ══════════════════════════════════════════════════ */
+
+const DRIVE_FOLDER_ID = '';          // ← paste your folder ID here
+const DRIVE_API_KEY   = '';          // ← paste your API key here
+
 const GALLERY_FILES = [
   "IMG_4159 2.JPG",
   "IMG_4159.JPG",
   "IMG_4160.JPG",
   "IMG_4161.JPG"
-  // add more here: "my-photo.jpg",
 ];
 
-(async function initGallery() {
-  const grid = document.getElementById('galGrid');
-  const ROTS = [-1.8, 2.2, -0.6, 1.5];
-  let images = [...GALLERY_FILES];
+/* ── Image source helper ───────────────────────────
+   Returns array of { src, thumb, label } objects    */
+async function resolveImages() {
+  /* Drive folder configured → fetch from API */
+  if (DRIVE_FOLDER_ID && DRIVE_API_KEY) {
+    try {
+      const q   = encodeURIComponent(`'${DRIVE_FOLDER_ID}' in parents and mimeType contains 'image/' and trashed=false`);
+      const url = `https://www.googleapis.com/drive/v3/files?q=${q}&orderBy=createdTime%20desc&pageSize=100&key=${DRIVE_API_KEY}&fields=files(id,name)`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Drive API error ' + res.status);
+      const data = await res.json();
+      if (!data.files || !data.files.length) throw new Error('No images found in folder');
+      return data.files.map(f => ({
+        /* Full-size view URL — works for publicly shared files */
+        src:   `https://lh3.googleusercontent.com/d/${f.id}=s1600`,
+        /* Thumbnail for the marquee (faster load) */
+        thumb: `https://lh3.googleusercontent.com/d/${f.id}=s400`,
+        label: f.name
+      }));
+    } catch (err) {
+      console.warn('[Gallery] Drive fetch failed, falling back to local files:', err.message);
+    }
+  }
 
-  /* bonus: if served via HTTP, also try manifest.json for extra images */
+  /* Fallback → local files */
+  let files = [...GALLERY_FILES];
   if (location.protocol !== 'file:') {
     try {
       const r = await fetch('gallery/manifest.json');
       if (r.ok) {
         const extra = await r.json();
-        // merge, dedupe
-        images = [...new Set([...images, ...extra])];
+        files = [...new Set([...files, ...extra])];
       }
     } catch(_) {}
   }
+  return files.map(f => ({
+    src:   'gallery/' + encodeURIComponent(f),
+    thumb: 'gallery/' + encodeURIComponent(f),
+    label: f
+  }));
+}
+
+/* ── Main ─────────────────────────────────────────── */
+(async function initGallery() {
+  const wrap = document.getElementById('galGrid');
+  wrap.innerHTML = '<p style="text-align:center;padding:60px;color:var(--dim)">Loading…</p>';
+
+  const images = await resolveImages();
 
   if (!images.length) {
-    grid.innerHTML = '<p style="text-align:center;padding:60px;color:var(--dim)">Add images to the GALLERY_FILES array in js/gallery.js.</p>';
+    wrap.innerHTML = '<p style="text-align:center;padding:60px;color:var(--dim)">No images found. Add images to the gallery/ folder or configure DRIVE_FOLDER_ID.</p>';
     return;
   }
 
-  /* render cards */
-  grid.innerHTML = '';
-  images.forEach((file, i) => {
-    const item = document.createElement('div');
-    item.className = 'gal-item';
-    item.style.cssText = `--gr:${ROTS[i % ROTS.length]}deg;transition-delay:${(i % 4) * 90}ms`;
-    item.dataset.idx = i;
-    item.innerHTML = `
-      <img src="gallery/${encodeURIComponent(file)}" alt="Student artwork ${i+1}" loading="lazy">
-      <div class="gal-ov">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-          <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-        </svg>
-      </div>`;
-    item.addEventListener('click', () => openLb(i));
-    grid.appendChild(item);
-  });
+  wrap.innerHTML = '';
+  wrap.className = 'gal-marquee-wrap';
 
-  /* reveal via IntersectionObserver defined in ui.js */
-  document.querySelectorAll('.gal-item').forEach(el => io.observe(el));
+  const ROTS = [-1.8, 2.2, -0.6, 1.5, -1.2, 1.8];
+
+  /* Repeat images until we have enough to fill the screen width seamlessly */
+  function fillTrack(imgs) {
+    const minCount = Math.max(10, Math.ceil(14 / imgs.length) * imgs.length);
+    const out = [];
+    while (out.length < minCount) out.push(...imgs);
+    return out;
+  }
+
+  const row1 = fillTrack(images);
+  const row2 = fillTrack([...images].reverse());
+
+  function buildTrack(imgs, reverse) {
+    const track = document.createElement('div');
+    track.className = 'gal-track' + (reverse ? ' rev' : '');
+
+    /* Duplicate so CSS -50% translateX loops seamlessly */
+    [...imgs, ...imgs].forEach((img, i) => {
+      const origIdx = images.indexOf(img);
+      const item    = document.createElement('div');
+      item.className = 'gal-item';
+      item.style.setProperty('--gr', ROTS[i % ROTS.length] + 'deg');
+      item.innerHTML = `
+        <img src="${img.thumb}" alt="${img.label}" loading="lazy" draggable="false">
+        <div class="gal-ov">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+          </svg>
+        </div>`;
+      item.addEventListener('click', () => openLb(origIdx >= 0 ? origIdx : i % images.length));
+      track.appendChild(item);
+    });
+
+    return track;
+  }
+
+  wrap.appendChild(buildTrack(row1, false));
+  wrap.appendChild(buildTrack(row2, true));
 
   /* ── Lightbox ── */
   const lb      = document.getElementById('gal-lb');
@@ -64,7 +132,7 @@ const GALLERY_FILES = [
   function openLb(idx) {
     cur = idx;
     lbImg.style.opacity = '0';
-    lbImg.src = 'gallery/' + encodeURIComponent(images[idx]);
+    lbImg.src = images[idx].src;
     lbImg.onload = () => { lbImg.style.opacity = '1'; };
     lbCount.textContent = `${idx + 1} / ${images.length}`;
     lb.classList.add('open');
