@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doo Doodle — How a Scribble Can Change Your Life</title>
+  <!--
+    FONT: Outfit (closest Google Fonts match to Debata).
+    TO SWAP TO DEBATA: comment this link, add your @font-face in the style block below.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- ═══ INLINE SVG DEFS ══════════════════════════════════
+     logomark → brand double-loop mark (nav + small accents)
+══════════════════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden;">
+  <defs>
+
+    <!-- ── CURL A (kept for reference, not used) ─────── -->
+    <symbol id="curl-a" viewBox="0 0 348 338">
+      <path fill="currentColor" d="
+M123.704739 159.877155 C123.227932 145.405231 126.723782 132.862811 137.177761 122.983051 C139.588162 120.704852 142.251370 118.451038 145.208889 117.057941 C148.705471 115.411060 148.190090 114.127033 146.117947 111.715839 C140.545559 105.231281 133.062161 103.877674 125.457668 105.082263 C118.495144 106.185199 111.674465 108.666095 105.029202 111.170917 C96.132229 114.524555 90.509548 122.196491 84.460598 128.889972 C76.906765 137.248737 69.833157 146.392963 67.459377 157.755695 C63.975246 174.432330 65.917996 190.414874 77.987209 203.391681 C83.755520 209.593891 90.814724 214.666950 97.614529 219.822406 C108.771389 228.281452 117.590725 238.653278 120.449978 252.397785 C123.346706 266.322528 121.882595 280.299945 116.814602 293.894306 C113.336697 303.223346 108.746121 311.872638 102.461819 319.403766 C96.359280 326.717243 88.177029 331.272663 78.616238 332.853046 C73.748562 333.657672 68.821682 334.880390 63.952175 334.751483 C49.385891 334.365863 35.441555 332.322101 23.820828 321.749225 C14.367336 313.148151 7.499905 303.216510 2.647244 291.522418 C-3.896336 275.753436 1.987331 252.917438 17.023830 246.124469 C26.994656 241.619953 37.490261 238.180133 48.504543 239.065509 C57.314724 239.773639 67.861843 243.708942 69.870510 254.807392 C70.861111 260.280780 70.157742 266.323993 68.969143 271.839618 C68.124416 275.759357 65.396877 279.363422 63.137600 282.868610 C59.115383 289.108600 49.682278 289.901935 45.679958 283.895282 C44.585720 282.253192 46.320828 278.115192 47.666531 275.611041 C49.379910 272.422748 52.489651 269.976154 54.153347 266.771564 C57.144558 261.009967 54.950466 256.509418 48.606960 255.998126 C38.336941 255.170368 28.920315 257.873248 20.618923 264.374896 C13.972805 269.580097 13.939114 277.550922 16.131130 283.207294 C21.376492 296.742816 29.866116 309.374530 44.832058 313.051166 C58.731472 316.465778 73.639431 318.421955 86.614651 308.827716 C95.155056 302.512714 100.449612 293.694110 103.358791 283.631244 C106.852566 271.545978 108.115017 259.054340 102.412624 247.478961 C99.664944 241.901203 94.596706 237.145343 89.745876 232.990314 C78.922756 223.719806 67.421780 215.235553 61.119534 201.821735 C54.844387 188.465656 53.696926 174.958270 56.361965 160.244647 C58.823635 146.653705 66.033474 136.422626 74.556545 126.760150 C80.955471 119.505847 88.043362 112.684039 95.641628 106.708728 C104.390896 99.828205 115.729031 98.920032 126.103420 95.893543 C134.313625 93.498462 142.228909 95.127948 149.445583 99.028369 C153.481472 101.209674 156.648220 104.973712 160.297634 107.911426 C161.360622 108.767108 162.888210 109.976917 163.947414 109.762439 C174.948757 107.534839 185.279690 111.565112 195.907986 112.800403 C206.176663 113.993915 215.877956 111.410846 224.438137 105.784259 C232.120266 100.734699 239.767239 95.430011 246.560574 89.278156 C256.292385 80.465442 261.692776 69.311817 260.711453 55.716663 C260.336697 50.524463 259.785305 45.327564 259.768826 40.131366 C259.748196 33.676288 255.901150 29.634509 251.008205 26.983631 C232.875759 17.159809 214.504788 16.045001 196.883450 28.029132 C191.850002 31.452320 187.382351 36.227313 183.850124 41.226734 C177.041042 50.864398 181.779079 60.248950 186.531643 68.945239 C188.621243 72.768787 192.221462 76.008319 195.761990 78.684558 C197.283230 79.834522 201.011990 79.799152 202.667019 78.695911 C206.824246 75.924884 210.584621 72.445423 214.081814 68.840412 C216.141628 66.716998 214.208767 63.868610 210.593899 63.945789 C205.412258 64.056415 200.243923 64.695819 195.062405 64.971271 C193.920681 65.032031 192.437893 64.844715 191.696438 64.149005 C191.181301 63.665515 191.429836 62.041950 191.740627 61.054675 C195.964260 47.633167 213.261379 44.395282 222.646389 51.730701 C228.974026 56.676471 230.319119 65.858203 227.503079 73.432605 C223.275417 84.803485 215.690212 92.667865 203.372463 96.069141 C195.448757 98.257099 189.345608 95.372211 184.350735 90.741199 C171.325832 78.664905 163.370754 63.782794 164.863796 45.482593 C165.610622 36.329120 170.225491 28.340167 175.944485 21.122577 C184.550198 10.262195 196.228420 5.014484 209.369900 1.787006 C229.788357 -3.227765 247.181301 2.678943 263.356838 14.913837 C271.759304 21.269122 274.098415 30.459125 275.537869 39.783893 C277.278103 51.056842 277.392849 62.503711 273.694363 73.597370 C272.426540 77.400195 271.073147 81.175617 269.698513 84.941486 C265.054104 97.664905 267.796658 109.307147 275.364529 119.922016 C280.999783 127.826434 297.600002 130.514667 307.990871 126.181110 C316.679104 122.557575 322.361233 115.726856 326.478909 108.017230 C330.213162 101.025440 332.714748 93.167987 334.483791 85.401538 C335.822048 79.526325 332.221096 75.089649 327.101467 71.622150 C317.358303 65.023120 304.842190 68.039661 297.768215 74.272449 C295.466457 76.300434 294.937527 78.401813 296.411648 81.143543 C297.058865 82.347156 297.286892 83.776264 297.704739 85.103137 C299.800442 91.757007 299.554104 91.429675 304.982082 87.349903 C307.564480 85.409015 311.219997 84.430164 314.513577 84.025501 C318.193752 83.573413 319.162014 86.537494 318.664700 89.625690 C317.331326 97.905689 308.662380 105.302020 300.216946 105.922382 C294.394192 106.350116 291.298489 102.856708 288.885647 98.498309 C283.968288 89.615375 280.078030 80.456043 282.692288 69.889636 C284.825588 61.267139 291.820705 57.698841 299.062527 55.237323 C307.395657 52.404865 315.950344 51.571735 324.816921 54.740772 C337.016140 59.100940 348.678616 74.327106 345.050686 89.772449 C341.819485 103.528034 336.086453 115.628650 326.910427 125.696369 C321.117336 132.052570 313.082546 136.040607 303.717678 137.068683 C293.746975 138.163349 285.275784 135.555622 277.369534 130.019977 C268.799099 124.019245 264.692654 115.488971 263.719631 105.274127 C263.609524 104.117938 263.885525 102.906238 263.662136 101.784046 C263.331570 100.123126 262.714016 98.519306 262.218655 96.891193 C261.060574 98.040149 259.931301 99.220264 258.738674 100.332324 C254.195705 104.568378 250.124416 109.558948 244.964871 112.828296 C236.630154 118.109699 227.889431 123.051654 218.738186 126.661518 C208.806057 130.579364 198.160061 129.671527 187.750759 127.437946 C181.922024 126.187274 176.112942 124.674823 170.212673 123.966205 C161.040188 122.864581 153.404324 127.435077 146.137844 132.075824 C135.154690 139.090167 132.443874 150.008014 131.469265 162.433490 C130.166897 179.036640 135.929836 193.144306 143.642239 207.015460 C144.359402 208.305316 144.201321 210.081806 144.449612 211.632343 C142.867947 210.841205 140.652126 210.470905 139.804104 209.193012 C132.391872 198.022052 125.901882 186.344623 123.802883 172.871662 C123.168606 168.800556 123.704739 164.547077 123.704739 159.877155 z"/>
+    </symbol>
+
+    <!-- ── CURL B (bottom scroll flourish) ─────────────── -->
+    <symbol id="curl-b" viewBox="591 622 168 222">
+      <path fill="currentColor" d="
+M729.704739 654.877155 C734.403713 657.655841 737.888821 660.840656 736.691067 666.592243 C736.503079 667.493732 736.353664 668.546710 735.797756 669.198200 C734.650539 670.543048 733.240871 671.664142 731.939114 672.877155 C730.860989 671.634235 729.260403 670.553913 728.812649 669.114826 C727.851467 666.025226 726.555813 663.890827 722.928616 663.843219 C719.090481 663.792804 716.541531 665.550983 715.141628 668.967975 C712.584866 675.208820 716.463528 680.385578 723.238430 680.961994 C737.611477 682.184894 746.588772 668.816730 744.567043 659.138019 C742.524563 649.358844 734.607815 640.533405 724.375393 637.839801 C715.066921 635.389484 707.297024 637.502643 701.145046 644.961994 C697.066189 649.907428 692.221218 654.495197 689.322659 660.076007 C684.860012 668.668292 687.963772 677.161456 692.431789 685.088580 C692.589382 685.368122 693.046902 685.532062 693.106594 685.805866 C695.703884 697.739581 706.196926 700.394489 715.230740 705.003253 C729.378811 712.221271 740.608547 722.861164 747.558498 737.129352 C754.110012 750.580158 755.574612 764.981403 751.435452 779.623126 C749.360012 786.964313 747.400784 794.188190 742.048733 800.289264 C736.361721 806.772174 729.627346 810.792438 721.341702 811.769245 C711.902737 812.882038 702.920681 811.307697 695.219387 804.948444 C688.488674 799.390460 683.258328 792.770831 681.795925 784.103473 C678.899929 766.939289 688.481350 756.772540 702.202663 753.167926 C712.694973 750.411701 726.886623 756.911701 722.666164 772.834186 C721.760159 776.251911 720.842922 779.835285 719.022610 782.781330 C717.851467 784.676715 715.056057 786.545612 712.926296 786.619220 C710.381374 786.707111 707.059963 785.484455 705.446804 783.633624 C704.437527 782.475665 705.477444 778.884235 706.471584 776.801837 C707.548611 774.545856 709.657375 772.787799 711.278957 770.782550 C711.706936 770.253497 711.998074 769.613483 712.351955 769.024372 C711.677273 768.641925 711.045925 768.079425 710.321194 767.905231 C703.460110 766.255451 699.504665 770.864459 695.982449 775.300250 C692.945095 779.125324 694.526150 783.958942 696.864163 787.288532 C704.066799 797.546466 717.094509 801.498737 728.035305 794.736286 C735.808498 789.931720 739.697659 781.561237 741.478909 773.011554 C743.329739 764.127521 743.322170 754.855304 740.291164 745.979328 C734.745754 729.740924 724.026516 717.971515 709.123440 709.698932 C705.417996 707.642047 702.142971 704.810016 698.664700 702.342121 C698.090847 701.934894 697.488552 701.567951 696.899441 701.182453 C696.501247 702.017169 695.815334 702.830646 695.751370 703.690143 C695.327908 709.377155 695.498196 715.146686 694.614895 720.753742 C692.354397 735.101764 689.582302 749.533893 678.077663 759.800739 C671.006619 766.110797 663.293484 772.077594 652.726345 770.865436 C650.522488 770.612506 648.253689 770.477863 646.154568 769.833454 C633.359158 765.904987 622.212795 769.835529 611.737820 776.921466 C610.515774 777.748248 609.500637 779.062824 608.737087 780.356403 C602.620388 790.719928 604.176174 801.282794 608.926052 811.415973 C612.376247 818.776325 616.487209 825.603473 625.475002 828.359455 C639.125271 832.545368 652.467556 826.573322 655.943142 817.208576 C657.898830 811.938922 656.680569 804.980426 652.543362 802.285114 C649.281155 800.159992 643.381130 799.140338 638.993801 805.220539 C637.128811 807.805377 636.166164 811.029621 634.683376 813.906452 C633.799954 815.620319 632.702663 817.223956 631.701687 818.877155 C630.259548 817.600788 628.370632 816.582965 627.455227 815.001544 C624.077541 809.167316 625.024807 802.290851 630.581814 796.631915 C638.824490 788.237995 652.297878 786.691608 660.179958 795.957477 C667.884670 805.014728 668.921536 815.685016 662.305080 826.913165 C656.198025 837.276813 646.167629 840.663043 635.708279 840.550739 C620.996365 840.392780 609.594509 832.868854 601.607082 820.112995 C597.076565 812.877765 593.706936 804.995441 594.011379 796.883991 C594.522854 783.244342 597.470364 769.679645 610.995388 762.350055 C616.192776 759.533283 622.331448 757.795734 628.225613 757.075397 C637.159084 755.983722 646.281033 755.617999 655.272854 756.031330 C665.868069 756.518146 672.692898 751.261432 677.609158 743.015949 C682.542507 734.741901 684.379910 725.715778 681.821072 716.035358 C681.341702 714.222125 682.794094 711.975055 682.629421 709.988239 C682.020168 702.638751 681.621365 695.212726 680.196316 688.002765 C677.603298 674.882404 676.301785 661.496662 682.023464 649.377521 C687.212063 638.387287 695.836208 629.884235 708.310085 625.746417 C730.772610 618.295001 752.612698 637.930011 757.495266 655.122760 C762.076809 671.254962 751.657620 689.316486 733.879299 694.812702 C720.021877 699.096759 701.636013 688.503742 703.744534 671.095172 C705.142239 659.554279 714.274807 651.202960 729.704739 654.877155 z"/>
+    </symbol>
+
+    <!-- ── LOGO MARK (nav + small accents) ──────────────── -->
+    <symbol id="logomark" viewBox="0 0 220 200">
+      <path d="M110,58 C92,42 40,48 28,94 C16,140 58,188 110,200" stroke="currentColor" stroke-width="16" stroke-linecap="round" fill="none"/>
+      <path d="M110,58 C105,72 103,100 103,132 C103,160 105,180 110,200" stroke="currentColor" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M110,58 C128,40 192,54 204,100 C216,146 174,188 110,200" stroke="currentColor" stroke-width="16" stroke-linecap="round" fill="none"/>
+      <path d="M110,58 C115,72 117,100 117,132 C117,160 115,180 110,200" stroke="currentColor" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M110,64 C104,78 102,102 110,113 C118,102 116,78 110,64 Z" fill="currentColor" stroke="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="n-logo">
+    <svg width="28" height="26" viewBox="0 0 220 200" fill="none" color="var(--coral)">
+      <use href="#logomark"/>
+    </svg>
+    doodoodle
+  </div>
+  <ul class="n-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#instructor">Instructor</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#" data-open="pol-modal">Policies</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="n-cta">Enroll Now</button>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════════════════════ -->
+<section id="hero">
+  <div class="vignette"></div>
+  <div class="hero-glow"></div>
+
+  <!-- ╔═══════════════════════════════════════════════════════╗
+       ║  6-LAYER DEPTH PARALLAX — using curl.svg shape        ║
+       ║  depth 0.05 (far/tiny/blurry) → 1.6 (near/huge/sharp)║
+       ║  JS applies scale + opacity + blur per depth value     ║
+       ╚═══════════════════════════════════════════════════════╝ -->
+  <div id="pworld">
+    <!-- doodle depth layers injected by JS below -->
+  </div><!-- /#pworld -->
+
+  <div class="hero-content">
+    <div class="hero-badge"><em></em>The Doo Doodle Method</div>
+    <h1 class="hero-hl">
+      <span class="hl-a">LET'S</span>
+      <span class="hl-b">DOO</span>
+      <span class="hl-c">DOODLE.</span>
+    </h1>
+    <p class="hero-sub">You don't need talent to doodle. You just need to begin. Doo Doodle is for anyone who's ever been told "you can't draw" — and believed it.</p>
+    <div class="hero-acts">
+      <button class="btn-pri">
+        Start Doodling
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="btn-gho">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 6.5L12 9L7 11.5V6.5Z" fill="currentColor"/></svg>
+        Watch the Story
+      </button>
+      <div class="sproof">
+        <div class="avs"><i></i><i></i><i></i></div>
+        <div class="sp-t"><strong>2,400+</strong> lives changed</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="sc-line"></div>scroll</div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- MARQUEE -->
+<div class="mqw">
+  <div class="mqt">
+    <span class="mi">Just Begin</span><span class="mi">Anyone Can Doodle</span>
+    <span class="mi">5 Minutes a Day</span><span class="mi">Put Down the Screen</span>
+    <span class="mi">No Rules. No Grades.</span><span class="mi">Quiet the Mind</span>
+    <span class="mi">Pick Up the Pen</span><span class="mi">Make Your Mark</span>
+    <span class="mi">Just Begin</span><span class="mi">Anyone Can Doodle</span>
+    <span class="mi">5 Minutes a Day</span><span class="mi">Put Down the Screen</span>
+    <span class="mi">No Rules. No Grades.</span><span class="mi">Quiet the Mind</span>
+    <span class="mi">Pick Up the Pen</span><span class="mi">Make Your Mark</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══════════════════════════════════════════ -->
+<section id="about" class="s-light">
+  <div class="sd" data-sy="-0.1" style="top:-40px;right:-20px;opacity:.55;">
+    <img src="doodle/mushroom.svg" width="180" style="transform:rotate(-18deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="sd" data-sy="0.13" style="bottom:-50px;left:-30px;opacity:.3;">
+    <img src="doodle/snail.svg" width="160" style="transform:rotate(25deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+
+  <div class="about-left">
+    <div class="sec-label">About the method</div>
+    <h2 class="rv">How a scribble<br><span class="hic">changed</span><br>everything.</h2>
+    <p class="sec-sub rv d1">One evening, burned out and staring at a screen for twelve hours, a pen was picked up. Not to draw anything — just to scribble. A circle. A squiggle. And something strange happened. Shoulders dropped. Breathing slowed. The mind went quiet. That was the birth of Doo Doodle.</p>
+    <div class="sg">
+      <div class="sc rv d1"><div class="sn" data-count="29" data-suffix="%">29%</div><div class="sl">Better memory retention</div></div>
+      <div class="sc rv d2"><div class="sn" data-count="5" data-suffix="min">5min</div><div class="sl">Daily practice needed</div></div>
+      <div class="sc rv d3"><div class="sn" data-count="0" data-suffix="">0</div><div class="sl">Prior talent required</div></div>
+      <div class="sc rv d4"><div class="sn" data-count="4.9" data-suffix="★">4.9★</div><div class="sl">Average rating</div></div>
+    </div>
+  </div>
+
+  <div class="about-right">
+    <div class="ad f2" style="top:-28px;right:-28px;">
+      <img src="doodle/cat.svg" width="80" style="transform:rotate(22deg);filter:brightness(0) invert(1) sepia(1) saturate(6) hue-rotate(-10deg);display:block;opacity:.85;">
+    </div>
+    <div class="ad f1" style="bottom:-20px;left:-20px;">
+      <img src="doodle/sweet.svg" width="72" style="transform:rotate(-20deg);filter:brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(10deg);display:block;opacity:.8;">
+    </div>
+    <div class="a-card rv d2">
+      <div class="a-big">✦</div>
+      <div class="a-sm">Anyone can begin — right now</div>
+      <div class="a-rows">
+        <div class="a-row"><div class="a-row-t">Can you draw a circle?</div><div class="a-row-s">That's Doo Doodle. You've already started.</div></div>
+        <div class="a-row"><div class="a-row-t">5 minutes every morning</div><div class="a-row-s">Before the screen. Before the noise.</div></div>
+        <div class="a-row act"><div class="a-row-t">Permission to be imperfect →</div><div class="a-row-s">No grades. No rules. Just you.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS / BENTO ════════════════════════════════ -->
+<section id="skills" class="s-light s-alt">
+  <div class="sd" data-sy="-0.08" style="top:-50px;right:-30px;opacity:.2;">
+    <img src="doodle/cactus.svg" width="200" style="transform:rotate(12deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="bh">
+    <div>
+      <div class="sec-label">Why it works</div>
+      <h2 class="rv">The science<br> of <span class="hic">doodling.</span></h2>
+    </div>
+    <p class="sec-sub rv d1" style="max-width:280px;font-size:15px;">Backed by research. Proven by thousands of students who simply began.</p>
+  </div>
+  <div class="bg">
+    <div class="bi s2 rv">
+      <div class="bi-icon"><svg viewBox="0 0 52 52" fill="none"><path d="M8,26 C8,26 18,8 26,8 C34,8 44,26 44,26 C44,26 34,44 26,44 C18,44 8,26 8,26 Z" stroke="var(--coral)" stroke-width="2" fill="rgba(224,87,64,0.08)"/><circle cx="26" cy="26" r="7" stroke="var(--coral)" stroke-width="2" fill="rgba(224,87,64,0.14)"/></svg></div>
+      <h3>+29% Memory &amp; Concentration</h3>
+      <p>Research from the University of Plymouth found that doodling improves concentration and memory retention by up to 29%. Nearly a third better recall — just from doodling while you listen.</p>
+      <div class="bi-bg"><img src="doodle/cup.svg" width="170" style="transform:rotate(-8deg);filter:brightness(0) invert(1);display:block;opacity:.7;"></div>
+    </div>
+    <div class="bi rv d1">
+      <div class="bi-icon"><svg viewBox="0 0 52 52" fill="none"><path d="M12,42 L26,12 L40,42" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17,31 L35,31" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Stress<br>Relief</h3>
+      <p>No rules. No grades. No judgement. In a world where everything is evaluated, that freedom is profoundly powerful.</p>
+    </div>
+    <div class="bi rv d1">
+      <div class="bi-icon"><svg viewBox="0 0 52 52" fill="none"><rect x="10" y="10" width="14" height="14" rx="3" stroke="var(--sky)" stroke-width="2" fill="rgba(77,191,255,0.08)"/><rect x="28" y="10" width="14" height="14" rx="3" stroke="var(--sky)" stroke-width="2" fill="rgba(77,191,255,0.08)"/><rect x="10" y="28" width="14" height="14" rx="3" stroke="var(--sky)" stroke-width="2" fill="rgba(77,191,255,0.08)"/><rect x="28" y="28" width="14" height="14" rx="3" stroke="var(--sky)" stroke-width="2" fill="rgba(77,191,255,0.14)"/></svg></div>
+      <h3>Screen<br>Detox</h3>
+      <p>The average person spends 7 hours a day on screens. Doodling puts down the phone. Analog in a digital world — exactly what overstimulated minds need.</p>
+    </div>
+    <div class="bi rv d2">
+      <div class="bi-icon"><svg viewBox="0 0 52 52" fill="none"><path d="M26,6 C18,16 6,20 6,30 C6,40 14,46 26,46 C38,46 46,40 46,30 C46,20 34,16 26,6 Z" stroke="var(--violet)" stroke-width="2" fill="rgba(168,85,247,0.08)"/></svg></div>
+      <h3>Whole-Brain<br>Thinking</h3>
+      <p>Drawing engages both hemispheres simultaneously — logic and creativity working together. Problems you've stared at for hours suddenly have solutions.</p>
+    </div>
+    <div class="bi s2 rv d2">
+      <div class="bi-icon"><svg viewBox="0 0 52 52" fill="none"><circle cx="18" cy="26" r="8" stroke="var(--coral)" stroke-width="2" fill="rgba(224,87,64,0.08)"/><circle cx="34" cy="26" r="8" stroke="var(--gold)" stroke-width="2" fill="rgba(232,200,64,0.08)"/></svg></div>
+      <h3>Your Daily 5 Minutes of "Me Time"</h3>
+      <p>When did you last do something just for yourself? Not for a grade. Not for a deadline. Just for you. Five minutes of intentional stillness — a pen, a page, and your own mind wandering freely — is a radical act.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CURRICULUM ════════════════════════════════════ -->
+<section id="curriculum" class="s-light">
+  <div class="sd" data-sy="0.11" style="top:40px;right:-80px;opacity:.25;">
+    <img src="doodle/sweet.svg" width="220" style="transform:rotate(-22deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="sd" data-sy="-0.09" style="bottom:20px;left:-60px;opacity:.2;">
+    <img src="doodle/cat.svg" width="175" style="transform:rotate(35deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="ch">
+    <div>
+      <div class="sec-label">Course curriculum</div>
+      <h2 class="rv">6 phases.<br><span class="hiC">20 sessions.</span></h2>
+    </div>
+    <p class="sec-sub rv d1" style="max-width:280px;font-size:15px;">30 minutes per session. Two tracks — Kids (5–14) &amp; Adults (18+). Built on permission, not perfection.</p>
+  </div>
+  <div class="mg">
+    <div class="mc rv tilt"><div class="mc-n">01</div><div class="mc-tag">Foundation</div><h3>Objects from Shapes</h3><p>Learn to see any object as a combination of simple shapes. Camera, flower pot, bicycle, plant — drawn step by step from reference images, then freely.</p><div class="mc-meta">4 sessions · 2 hours</div></div>
+    <div class="mc rv d1 tilt"><div class="mc-n">02</div><div class="mc-tag" style="color:var(--gold);background:rgba(232,200,64,0.1);border-color:rgba(232,200,64,0.2);">Colour</div><h3>Colour &amp; Markers</h3><p>Introduction to markers and colour palettes. Learn colour blocking, basic shading, and how to make your doodles vibrant and alive.</p><div class="mc-meta">2 sessions · 1 hour</div></div>
+    <div class="mc rv d2 tilt"><div class="mc-n">03</div><div class="mc-tag" style="color:var(--sky);background:rgba(77,191,255,0.1);border-color:rgba(77,191,255,0.2);">Expression</div><h3>Faces &amp; Expressions</h3><p>Draw a full range of emotions — happy, sad, surprised, sleepy, cheeky and more. Create your own personal expression reference chart to keep and use.</p><div class="mc-meta">3 sessions · 1.5 hours</div></div>
+    <div class="mc rv tilt"><div class="mc-n">04</div><div class="mc-tag" style="color:var(--violet);background:rgba(168,85,247,0.1);border-color:rgba(168,85,247,0.2);">Character</div><h3>Objects Come Alive</h3><p>Place expressions on objects and give them real personality. A grumpy cactus. A curious book. A cheerful succulent. Design your own cast of character objects.</p><div class="mc-meta">3 sessions · 1.5 hours</div></div>
+    <div class="mc rv d1 tilt"><div class="mc-n">05</div><div class="mc-tag" style="color:var(--mint);background:rgba(61,255,160,0.1);border-color:rgba(61,255,160,0.2);">Scene</div><h3>Doodle Scenes &amp; Projects</h3><p>Learn composition and layout basics, then plan and draw your own complete doodle scene. Includes a 3-panel story strip and a fully coloured themed artwork.</p><div class="mc-meta">4 sessions · 2 hours</div></div>
+    <div class="mc rv d2 tilt"><div class="mc-n">06</div><div class="mc-tag">Mindful</div><h3>Zentangle &amp; Showcase</h3><p>Discover meditative zentangle patterns — fill backgrounds, decorate objects, and add intricate borders. End with a Grand Finale Showcase of your best work, celebrated.</p><div class="mc-meta">4 sessions · 2 hours</div></div>
+  </div>
+</section>
+
+<!-- ═══ INSTRUCTOR ════════════════════════════════════ -->
+<section id="instructor" class="s-light s-alt">
+  <div class="sd" data-sy="0.09" style="top:-30px;right:-50px;opacity:.18;">
+    <img src="doodle/snail.svg" width="240" style="transform:rotate(15deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="inst-in">
+    <div class="inst-pw">
+      <div class="inst-ph">🎨</div>
+      <!-- doodle border using logo shape -->
+      <svg class="sd f1" viewBox="0 0 308 280" fill="none" data-sy="-0.03"
+        style="position:absolute;inset:-16px;width:302px;height:276px;color:var(--coral);">
+        <path d="M154,10 C192,6 240,32 262,72 C284,112 280,162 258,198 C236,234 192,254 154,256 C116,258 74,236 50,202 C26,168 24,124 46,88 C68,52 102,28 138,14 C145,11 151,10 154,10 Z"
+          stroke="rgba(224,87,64,0.25)" stroke-width="1.5" stroke-dasharray="8 4" fill="none"/>
+      </svg>
+      <div style="position:absolute;top:-22px;right:-22px;" class="f2">
+        <img src="doodle/mushroom.svg" width="54" style="transform:rotate(-30deg);filter:brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(-12deg);display:block;opacity:.9;">
+      </div>
+      <div style="position:absolute;bottom:-16px;left:-16px;" class="f1">
+        <img src="doodle/cup.svg" width="46" style="transform:rotate(28deg);filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(8deg);display:block;opacity:.85;">
+      </div>
+    </div>
+    <div>
+      <div class="sec-label">Your instructor</div>
+      <h2 class="inst-nm rv">Hi, I'm<br>Gokul.</h2>
+      <div class="inst-ti">Creator of the Doo Doodle Method</div>
+      <p class="inst-bi rv d1">I'm an artist, doodle enthusiast, and the creator of Doo Doodle — a drawing method built on one simple idea: creativity is not a talent you're born with. It's a habit you build, one line at a time. My journey didn't start in an art school. It started at a desk, burned out from a career in software development, staring at screens for hours on end.</p>
+      <p class="inst-bi rv d2">One evening, I picked up a pen and started scribbling — and that small, quiet moment changed everything. Today I conduct workshops and work with students in small, personal sessions — helping beginners, professionals, and curious minds discover the joy of putting pen to paper. No judgement. No pressure. Just the freedom to create.</p>
+      <div class="inst-ach rv d3">
+        <div><div class="ia-n">TEDx</div><div class="ia-l">Speaker</div></div>
+        <div><div class="ia-n">2,400+</div><div class="ia-l">Students taught</div></div>
+        <div><div class="ia-n">5min</div><div class="ia-l">Daily practice</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ══════════════════════════════════ -->
+<section id="testi" class="s-light">
+  <div class="sd f1" data-sy="-0.06" style="top:-10px;left:30px;opacity:.3;">
+    <img src="doodle/cactus.svg" width="110" style="transform:rotate(38deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="sd f2" data-sy="0.07" style="bottom:10px;right:30px;opacity:.25;">
+    <img src="doodle/sweet.svg" width="105" style="transform:rotate(-25deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="th">
+    <div class="sec-label">Student love</div>
+    <h2 class="rv">Real results from<br><span class="hic">real doodlers.</span></h2>
+  </div>
+  <div class="tg">
+    <div class="tc rv"><div class="tc-q">"</div><div class="stars">★★★★★</div><p class="tc-txt">I was a complete sceptic. "I'm a software developer, I don't draw." But five minutes in, my shoulders dropped and my mind went quiet. I haven't missed a morning since.</p><div class="tc-au"><svg class="tc-av" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="19" fill="url(#tg1)"/><defs><linearGradient id="tg1" x1="0" y1="0" x2="38" y2="38"><stop stop-color="#A855F7"/><stop offset="1" stop-color="#4DBFFF"/></linearGradient></defs><text x="19" y="24" text-anchor="middle" fill="white" font-size="15" font-family="Outfit">S</text></svg><div><div class="tc-nm">Sarah K.</div><div class="tc-ro">Product Designer</div></div></div></div>
+    <div class="tc rv d1"><div class="tc-q">"</div><div class="stars">★★★★★</div><p class="tc-txt">I told myself I couldn't draw. Within twenty minutes of my first session, I was filling pages. The instructor was right — I didn't need talent. I just needed permission.</p><div class="tc-au"><svg class="tc-av" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="19" fill="url(#tg2)"/><defs><linearGradient id="tg2" x1="0" y1="0" x2="38" y2="38"><stop stop-color="#E05740"/><stop offset="1" stop-color="#E8C840"/></linearGradient></defs><text x="19" y="24" text-anchor="middle" fill="#fff" font-size="15" font-family="Outfit">J</text></svg><div><div class="tc-nm">James M.</div><div class="tc-ro">Secondary School Teacher</div></div></div></div>
+    <div class="tc rv d2"><div class="tc-q">"</div><div class="stars">★★★★★</div><p class="tc-txt">I use Doo Doodle before every exam. My concentration is sharper and I actually retain more of what I study. There's real science behind this and it genuinely works.</p><div class="tc-au"><svg class="tc-av" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="19" fill="url(#tg3)"/><defs><linearGradient id="tg3" x1="0" y1="0" x2="38" y2="38"><stop stop-color="#3DFFA0"/><stop offset="1" stop-color="#4DBFFF"/></linearGradient></defs><text x="19" y="24" text-anchor="middle" fill="#060608" font-size="15" font-family="Outfit">A</text></svg><div><div class="tc-nm">Anika P.</div><div class="tc-ro">University Student</div></div></div></div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ════════════════════════════════════════ -->
+<section id="pricing" class="s-light s-alt">
+  <div class="sd" data-sy="-0.06" style="bottom:-30px;right:-40px;opacity:.15;">
+    <img src="doodle/mushroom.svg" width="200" style="transform:rotate(-14deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="prh">
+    <div class="sec-label">Simple pricing</div>
+    <h2 class="rv">One course.<br><span class="hic">Forever yours.</span></h2>
+    <p class="sec-sub rv d1" style="margin:0 auto;text-align:center;">No subscriptions. No hidden fees. Pay once, learn for life.</p>
+  </div>
+  <div class="prg">
+    <div class="pc rv"><div class="pc-nm">Monthly Access</div><div class="pc-pr"><sup>₹</sup>999</div><div class="pc-pe">per month, cancel anytime</div><ul class="pc-fl"><li>20 sessions × 30 min</li><li>6 structured phases</li><li>Project feedback</li><li>Community access</li></ul><button class="btn-pc bpg">Get Monthly</button></div>
+    <div class="pc feat rv d1"><div class="pc-badge">Best Value</div><div class="pc-nm">Lifetime Access</div><div class="pc-pr"><sup>₹</sup>1,499</div><div class="pc-pe">one-time payment</div><ul class="pc-fl"><li>20 sessions × 30 min</li><li>6 structured phases</li><li>Project feedback</li><li>Community access</li><li>All future updates</li><li>Resource library</li><li>Printable worksheets</li></ul><button class="btn-pc bpp">Get Lifetime Access</button></div>
+  </div>
+  <p style="text-align:center;margin-top:28px;font-size:14px;color:var(--dim);">30-day money-back guarantee. No questions asked.</p>
+</section>
+
+<!-- ═══ GALLERY ══════════════════════════════════════════ -->
+<section id="gallery" class="s-light">
+  <div class="gh">
+    <div class="sec-label rv">Student work</div>
+    <h2 class="rv">Art in <span class="hic">the wild.</span></h2>
+    <p class="sec-sub rv d1">Real doodles by real students — straight from the course.</p>
+  </div>
+  <div class="gal-grid" id="galGrid">
+    <p style="text-align:center;padding:40px;color:var(--dim);grid-column:1/-1">Loading…</p>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="gal-lb" role="dialog" aria-modal="true">
+  <img id="lb-img" src="" alt="Gallery image">
+  <button class="lb-btn lb-prev" aria-label="Previous">&#8592;</button>
+  <button class="lb-btn lb-next" aria-label="Next">&#8594;</button>
+  <button class="lb-btn lb-close" aria-label="Close">&#10005;</button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+
+<!-- ═══ CONTACT ═══════════════════════════════════════════ -->
+<section id="contact" class="s-light s-alt">
+  <div class="prh">
+    <div class="sec-label">Get in touch</div>
+    <h2 class="rv">We reply within<br><span class="hic">24 hours.</span></h2>
+    <p class="sec-sub rv d1" style="margin:0 auto;text-align:center;">For faster responses, WhatsApp is the best way to reach us.</p>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:780px;margin:0 auto;">
+    <div class="bi rv" style="flex:1;min-width:200px;text-align:center;">
+      <div style="font-size:30px;margin-bottom:12px;">📱</div>
+      <h3 style="font-size:16px;margin-bottom:6px;">Phone / WhatsApp</h3>
+      <p><a href="tel:+919747662928" style="color:var(--coral);text-decoration:none;font-weight:600;">+91 97476 62928</a></p>
+    </div>
+    <div class="bi rv d1" style="flex:1;min-width:200px;text-align:center;">
+      <div style="font-size:30px;margin-bottom:12px;">✉</div>
+      <h3 style="font-size:16px;margin-bottom:6px;">Email</h3>
+      <p><a href="mailto:gokul.am.kr@gmail.com" style="color:var(--coral);text-decoration:none;font-weight:600;">gokul.am.kr@gmail.com</a></p>
+    </div>
+    <div class="bi rv d2" style="flex:1;min-width:200px;text-align:center;">
+      <div style="font-size:30px;margin-bottom:12px;">📸</div>
+      <h3 style="font-size:16px;margin-bottom:6px;">Instagram</h3>
+      <p><a href="https://instagram.com/_doo.doodle" target="_blank" rel="noopener" style="color:var(--coral);text-decoration:none;font-weight:600;">@_doo.doodle</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════ -->
+<section id="cta">
+  <div class="sd f1" style="top:20px;left:50px;opacity:.22;">
+    <img src="doodle/snail.svg" width="115" style="transform:rotate(32deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="sd f2" style="bottom:30px;right:60px;opacity:.2;">
+    <img src="doodle/cat.svg" width="105" style="transform:rotate(-18deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="sd sp" style="top:30px;right:120px;opacity:.14;">
+    <img src="doodle/cup.svg" width="88" style="transform:rotate(45deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <h2 class="rv">Pick up the pen.<br>Make <span class="hic">any mark.</span></h2>
+  <p class="rv d1">Creativity isn't a gift given to a few. It's a muscle, waiting to be used by everyone. Start where you are, with what you have.</p>
+  <button class="btn-pri rv d2" style="margin:0 auto;font-size:17px;padding:17px 40px;">
+    Begin Doodling Today
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9H14M14 9L10 5M14 9L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">
+    <svg width="24" height="22" viewBox="0 0 220 200" fill="none" color="var(--coral)"><use href="#logomark"/></svg>
+    doodoodle
+  </div>
+  <ul class="fls">
+    <li><a href="#about">About</a></li><li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#pricing">Pricing</a></li><li><a href="#" data-open="pol-modal">Policies</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <small>© 2025 Doo Doodle. All rights reserved.</small>
+</footer>
+
+<!-- ═══ ENROLMENT FORM MODAL ══════════════════════════════ -->
+<div id="enroll-modal" role="dialog" aria-modal="true" aria-label="Enrolment Form">
+  <div class="enroll-box">
+    <button class="enroll-close" aria-label="Close">&#10005;</button>
+    <div class="enroll-head">
+      <div class="pc-badge" style="position:static;transform:none;display:inline-flex;margin-bottom:18px;">Lifetime Access — ₹1,499</div>
+      <h2>Almost there!</h2>
+      <p>Fill in your details and we'll get you started.</p>
+    </div>
+    <form id="enroll-form" novalidate>
+      <div class="ef-group">
+        <label for="ef-name">Full Name <span class="ef-req">*</span></label>
+        <input type="text" id="ef-name" placeholder="Your full name" autocomplete="name">
+        <div class="ef-err" id="err-name">Please enter your name.</div>
+      </div>
+      <div class="ef-group">
+        <label for="ef-age">Age <span class="ef-req">*</span></label>
+        <input type="number" id="ef-age" placeholder="Your age" min="1" max="120">
+        <div class="ef-err" id="err-age">Please enter a valid age.</div>
+      </div>
+      <div class="ef-group">
+        <label for="ef-phone">Phone Number <span class="ef-req">*</span></label>
+        <input type="tel" id="ef-phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+        <div class="ef-err" id="err-phone">Please enter your phone number.</div>
+      </div>
+      <div class="ef-group">
+        <label>Do you need a kit? <span class="ef-req">*</span></label>
+        <div class="ef-toggle">
+          <label class="ef-opt">
+            <input type="radio" name="kit" value="yes">
+            <span>Yes, send me a kit</span>
+          </label>
+          <label class="ef-opt">
+            <input type="radio" name="kit" value="no">
+            <span>No, I have my own supplies</span>
+          </label>
+        </div>
+        <div class="ef-err" id="err-kit">Please select a kit preference.</div>
+      </div>
+      <button type="submit" class="btn-pri ef-submit">
+        Confirm Enrolment
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ POLICIES MODAL ════════════════════════════════════ -->
+<div id="pol-modal" role="dialog" aria-modal="true" aria-label="Cancellation Policy">
+  <div class="pol-box">
+    <button class="pol-close" aria-label="Close">&#10005;</button>
+    <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);margin-bottom:10px;">Cancellation Policy</div>
+    <h2 style="font-size:26px;font-weight:800;line-height:1.2;color:var(--ink);margin-bottom:8px;">Simple rules,<br>no surprises.</h2>
+    <p style="font-size:14px;color:var(--ink2);margin-bottom:28px;">We value your time and commitment to the Doo Doodle experience. Please read before booking.</p>
+    <div class="pol-items">
+      <div class="pol-item pol-wide">
+        <div class="pol-ic">⚠</div>
+        <h4>Non-Refundable</h4>
+        <p>All payments are strictly non-refundable. Once a booking is confirmed and payment is received, no refunds will be issued under any circumstances — including change of mind, scheduling conflicts, or personal emergencies.</p>
+      </div>
+      <div class="pol-item">
+        <div class="pol-ic">↺</div>
+        <h4>Rescheduling</h4>
+        <p>Unable to attend? You may request a one-time reschedule provided you notify us at least 48 hours in advance. Subject to availability and not guaranteed.</p>
+      </div>
+      <div class="pol-item">
+        <div class="pol-ic">✕</div>
+        <h4>No-Shows</h4>
+        <p>Participants who do not attend without prior notice will forfeit their seat and payment entirely.</p>
+      </div>
+      <div class="pol-item pol-wide">
+        <div class="pol-ic">◎</div>
+        <h4>Cancelled by Doo Doodle</h4>
+        <p>In the rare event that a session is cancelled by us due to unforeseen circumstances, participants will be offered a full reschedule or a credit toward a future session.</p>
+      </div>
+      <div class="pol-item">
+        <div class="pol-ic">↓</div>
+        <h4>Digital Products</h4>
+        <p>All purchases of digital materials, recorded sessions, or online programs are non-refundable once access has been granted.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px;font-size:12px;color:var(--ink2);border-top:1px solid var(--border-l);padding-top:18px;">By completing your payment, you confirm that you have read, understood, and agreed to this cancellation policy.</p>
+  </div>
+</div>
+
+<script src="js/animations.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>
