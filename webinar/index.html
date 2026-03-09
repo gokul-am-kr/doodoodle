@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Doodling Seminar — Doo Doodle</title>
+  <meta name="description" content="Join Gokul for a free 60-minute live online doodling seminar. No art experience needed. Register now — seats are limited!"/>
+  <!-- No index — keep this page out of search results until ready -->
+  <meta name="robots" content="noindex"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="webinar.css"/>
+</head>
+<body>
+
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- ═══ SVG DEFS ═════════════════════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden;">
+  <defs>
+    <symbol id="brand-logo" viewBox="0 0 1347.773804 1084.415894">
+      <path fill="currentColor" d="M253.039287 57.063570 C376.483397 25.639174 508.585518 84.581866 599.115543 174.193559 C683.458890 107.422987 780.515823 56.770092 883.524214 25.763960 C946.005763 6.956644 1011.606170 -4.711635 1076.527684 1.834820 C1141.449198 8.381275 1205.900248 34.494923 1250.345549 82.268077 C1280.592578 114.779855 1300.384654 155.680869 1315.344885 197.491034 C1341.259840 269.916957 1353.920987 347.909970 1344.853988 424.296412 C1336.813840 492.031980 1312.002668 556.839026 1280.762364 617.475604 C1216.043556 743.093048 1122.602985 853.804783 1009.643398 938.707068 C919.911272 1006.151210 816.585203 1057.811052 705.923478 1076.640531 C535.976267 1105.557643 355.084955 1052.417770 223.948679 940.518124 C92.812403 828.618478 12.391199 660.966818 1.311487 488.933410 C-4.502178 398.665466 8.508902 305.634191 50.457543 225.494241 C92.406184 145.354291 165.380009 79.378448 253.039273 57.063576 M229.396561 171.354300 C151.260964 213.643096 110.102067 304.237097 99.576788 392.456892 C86.573566 501.446082 112.644005 613.249042 163.961409 710.276105 C224.122556 824.024245 322.980087 921.318388 445.946976 959.228113 C529.087013 984.859534 624.985392 980.691800 696.557338 931.227750 C750.442182 893.987426 785.605323 835.412089 812.974464 775.902861 C847.841653 700.090485 872.784246 619.720651 886.965800 537.488538 C899.399243 465.392894 903.261835 389.531295 878.714175 320.612612 C861.789485 273.095775 826.457352 227.110233 776.743450 218.576604 C742.445573 212.689209 707.629499 225.660754 677.270073 242.669899 C670.746691 246.324682 663.368773 253.743629 667.527013 259.958206 C710.490772 324.168090 735.976723 399.951486 740.543182 477.074372 C743.352668 524.523718 737.896802 573.882306 714.546675 615.284060 C691.196548 656.685813 647.385874 688.613732 599.854897 688.239833 C536.721464 687.743199 486.052857 632.397299 463.989648 573.242492 C423.211670 463.910554 455.819199 335.520410 530.294133 245.688348 C494.129789 203.060325 446.137319 169.763512 392.228543 154.969865 C338.319766 140.176219 278.559670 144.746089 229.396562 171.354303 M1170.573449 138.518513 C1136.819024 108.393824 1089.071948 99.484247 1043.833612 98.891696 C977.047625 98.016903 910.106285 112.792018 849.893363 141.697671 C913.347824 174.744573 957.050875 238.600368 977.318588 307.213680 C997.586301 375.826992 996.526960 449.079750 987.509707 520.053378 C968.905205 666.486980 916.730117 808.553637 836.137680 932.221685 C998.437772 849.494997 1131.642531 710.982771 1207.968096 545.575899 C1229.320678 499.302241 1246.486856 450.370850 1250.528949 399.568825 C1255.163502 341.320539 1242.344730 282.875067 1222.916653 227.767067 C1211.323610 194.883244 1196.587495 161.735187 1170.573443 138.518521 M626.079122 573.843088 C642.223491 550.565344 644.983543 520.617592 644.153290 492.301436 C642.338003 430.390563 625.630505 368.967291 595.835665 314.667025 C571.045739 351.677963 552.092460 393.232831 545.509457 437.289772 C538.926454 481.346713 545.366749 528.060009 568.086214 566.376792 C575.639890 579.116202 587.642834 592.112549 602.377189 590.612764 C612.317527 589.600950 620.384834 582.053395 626.079123 573.843089 z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ═══ NAV ════════════════════════════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="../" class="n-logo" style="text-decoration:none;">
+    <svg width="50" height="40" viewBox="0 0 1347.773804 1084.415894" fill="none">
+      <use href="#brand-logo"/>
+    </svg>
+  </a>
+  <button class="n-cta" data-register>Register for Free</button>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
+<section id="w-hero">
+  <div class="w-blob w-blob-1"></div>
+  <div class="w-blob w-blob-2"></div>
+  <div class="w-blob w-blob-3"></div>
+  <div class="w-blob w-blob-4"></div>
+  <span class="w-badge"><span class="w-badge-dot"></span>Free Online Seminar</span>
+
+  <h1>Learn to Doodle —<br><em>Anyone Can!</em></h1>
+
+  <p class="sub">
+    A free 60-minute live online seminar by Gokul, creator of the Doo Doodle method.
+    No art experience needed. Just curiosity and a pen.
+  </p>
+
+  <div class="w-chips">
+    <span class="w-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+      60 Minutes
+    </span>
+    <span class="w-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      Online on Zoom
+    </span>
+    <span class="w-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Kids &amp; Adults
+    </span>
+    <span class="w-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+      Free to Attend
+    </span>
+    <span class="w-chip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+      Seats Limited
+    </span>
+  </div>
+
+  <button class="w-hero-cta" data-register>Register for Free ✦</button>
+
+  <div class="w-urgency">
+    <strong>Exclusive Bonus:</strong> Everyone who attends gets an early bird offer on the full
+    20-session Doo Doodle course — available only at this seminar!
+  </div>
+</section>
+
+<!-- ═══ MARQUEE RIBBON ═════════════════════════════════════════════════════ -->
+<div class="mqw">
+  <div class="mqt">
+    <span class="mi">Free to Attend</span><span class="mi">Online on Zoom</span>
+    <span class="mi">60 Minutes</span><span class="mi">Anyone Can Doodle</span>
+    <span class="mi">No Experience Needed</span><span class="mi">Just a Pen &amp; Paper</span>
+    <span class="mi">Seats Limited</span><span class="mi">Register Now</span>
+    <span class="mi">Free to Attend</span><span class="mi">Online on Zoom</span>
+    <span class="mi">60 Minutes</span><span class="mi">Anyone Can Doodle</span>
+    <span class="mi">No Experience Needed</span><span class="mi">Just a Pen &amp; Paper</span>
+    <span class="mi">Seats Limited</span><span class="mi">Register Now</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ══════════════════════════════════════════════════════════════ -->
+<section class="w-section w-peach">
+  <div class="w-wrap">
+    <span class="w-label reveal">About the Seminar</span>
+    <h2 class="w-h2 reveal">What is this seminar about?</h2>
+    <p class="w-intro reveal">
+      A free live session where Gokul walks you through the world of doodling like you have never
+      seen before — whether you are a curious parent or an adult who always wanted to draw.
+      In 60 minutes, no prep, no supplies, no experience needed.
+    </p>
+
+    <div class="w-cards">
+      <div class="w-card reveal reveal-delay-1">
+        <div class="w-card-icon peach">🧠</div>
+        <h3>Why Doodling Works</h3>
+        <p>The science of doodling — how it reduces stress, improves focus, and calms a busy mind.</p>
+      </div>
+      <div class="w-card reveal reveal-delay-2">
+        <div class="w-card-icon mint">✏️</div>
+        <h3>Live Doodle Demo</h3>
+        <p>Watch Gokul draw live — turning simple shapes into characters with personality and expression.</p>
+      </div>
+      <div class="w-card reveal reveal-delay-3">
+        <div class="w-card-icon sky">🎨</div>
+        <h3>Try It Yourself</h3>
+        <p>A guided 10-minute doodle activity — you will make something you are actually proud of, right in the session.</p>
+      </div>
+      <div class="w-card reveal reveal-delay-4">
+        <div class="w-card-icon lav">📖</div>
+        <h3>The Doo Doodle Journey</h3>
+        <p>A preview of the full 20-session curriculum — see exactly what you or your child will learn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AGENDA ═════════════════════════════════════════════════════════════ -->
+<section class="w-section w-sky">
+  <div class="w-wrap">
+    <span class="w-label reveal">60-Minute Agenda</span>
+    <h2 class="w-h2 reveal">What happens in 60 minutes?</h2>
+    <p class="w-intro reveal">Every minute is planned to be useful, inspiring, and fun. Here is exactly what to expect.</p>
+
+    <div class="w-agenda">
+      <div class="w-agenda-item reveal">
+        <div class="w-agenda-time">10 min</div>
+        <div class="w-agenda-dot-col"><div class="w-agenda-dot"></div></div>
+        <div class="w-agenda-body">
+          <span class="w-agenda-tag" style="background:#FFEEDD;color:#C05000;">Intro</span>
+          <h3>The Power of Doodling</h3>
+          <p>Why doodling is not just drawing — it is a brain tool. We cover stress relief, focus, creativity, and screen time reduction with real examples.</p>
+        </div>
+      </div>
+      <div class="w-agenda-item reveal reveal-delay-1">
+        <div class="w-agenda-time">15 min</div>
+        <div class="w-agenda-dot-col"><div class="w-agenda-dot"></div></div>
+        <div class="w-agenda-body">
+          <span class="w-agenda-tag" style="background:#E0EEFF;color:#1D5FAD;">Demo</span>
+          <h3>Live Doodle Demo</h3>
+          <p>Gokul doodles live on screen — drawing objects from simple shapes, adding expressions, and bringing characters to life. The Doo Doodle method in action.</p>
+        </div>
+      </div>
+      <div class="w-agenda-item reveal reveal-delay-2">
+        <div class="w-agenda-time">10 min</div>
+        <div class="w-agenda-dot-col"><div class="w-agenda-dot"></div></div>
+        <div class="w-agenda-body">
+          <span class="w-agenda-tag" style="background:#DDFBEC;color:#076B3E;">Activity</span>
+          <h3>Your First Doodle</h3>
+          <p>Everyone grabs a pen and paper. Gokul guides you through drawing one simple character step by step. No talent needed — just follow along!</p>
+        </div>
+      </div>
+      <div class="w-agenda-item reveal reveal-delay-3">
+        <div class="w-agenda-time">15 min</div>
+        <div class="w-agenda-dot-col"><div class="w-agenda-dot"></div></div>
+        <div class="w-agenda-body">
+          <span class="w-agenda-tag" style="background:#EDE6FF;color:#5B21B6;">Preview</span>
+          <h3>The Doo Doodle Course Preview</h3>
+          <p>A walkthrough of the 6-phase, 20-session curriculum — from drawing objects and expressions to complete doodle art and zentangle patterns.</p>
+        </div>
+      </div>
+      <div class="w-agenda-item reveal reveal-delay-4">
+        <div class="w-agenda-time">10 min</div>
+        <div class="w-agenda-dot-col"><div class="w-agenda-dot"></div></div>
+        <div class="w-agenda-body">
+          <span class="w-agenda-tag" style="background:#FFE8E5;color:#B91C1C;">Q&amp;A</span>
+          <h3>Q&amp;A + Special Offer</h3>
+          <p>Ask Gokul anything. And if you are ready to enroll, an exclusive seminar-only offer waits for you at the end!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHO IS IT FOR ══════════════════════════════════════════════════════ -->
+<section class="w-section w-mint">
+  <div class="w-wrap">
+    <span class="w-label reveal">Who Is It For</span>
+    <h2 class="w-h2 reveal">This seminar is for you if...</h2>
+    <p class="w-intro reveal">Whether you are a parent, a beginner, or someone looking for a calming new hobby — you belong here.</p>
+
+    <div class="w-audience">
+      <div class="w-aud-card reveal reveal-delay-1">
+        <div class="w-aud-num">01</div>
+        <h3>Parents of Kids (5–14)</h3>
+        <p>Curious how doodling can help your child focus, reduce screen time, and build a creative habit they love.</p>
+      </div>
+      <div class="w-aud-card reveal reveal-delay-2">
+        <div class="w-aud-num">02</div>
+        <h3>Adults &amp; Beginners</h3>
+        <p>You have always wanted to draw but told yourself you are not artistic. This seminar will change that story in 60 minutes.</p>
+      </div>
+      <div class="w-aud-card reveal reveal-delay-3">
+        <div class="w-aud-num">03</div>
+        <h3>Screen-Time Worried Parents</h3>
+        <p>Looking for a fun, engaging activity that pulls kids away from screens and gives them a creative outlet they enjoy.</p>
+      </div>
+      <div class="w-aud-card reveal reveal-delay-4">
+        <div class="w-aud-num">04</div>
+        <h3>Stress &amp; Anxiety Seekers</h3>
+        <p>If you need a calming, mindful hobby that fits into 30 minutes of your day — doodling is your answer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT GOKUL ════════════════════════════════════════════════════════ -->
+<section class="w-section w-lav">
+  <div class="w-wrap">
+    <div id="w-host">
+      <div class="w-host-img">
+        <!-- Replace with: <img src="../logo.jpg" alt="Gokul"/> -->
+        <div class="w-host-img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path d="M3 21a9 9 0 0 1 18 0"/></svg>
+          <span>Add your photo here</span>
+        </div>
+      </div>
+      <div class="w-host-text">
+        <span class="w-label">Meet Your Host</span>
+        <h2 class="w-h2">Meet Gokul</h2>
+        <p>
+          Hi, I am Gokul — a passionate doodler and the creator of the Doo Doodle method.
+          I believe doodling is one of the most underrated creative skills in the world.
+          It is simple, joyful, and deeply powerful — for the mind, for focus, and for self-expression.
+        </p>
+        <p>
+          I created Doo Doodle to make doodling structured, progressive, and genuinely fun for everyone —
+          kids and adults alike. My 6-phase, 20-session method takes complete beginners from their very first
+          line all the way to creating expressive doodle artwork they are proud of.
+        </p>
+        <p class="w-host-sig">I cannot wait to share this world with you at the seminar!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ════════════════════════════════════════════════════════════════ -->
+<section class="w-section w-plain">
+  <div class="w-wrap">
+    <span class="w-label">FAQ</span>
+    <h2 class="w-h2">Got questions? We have answers.</h2>
+    <p class="w-intro" style="margin-bottom:40px;">Everything you need to know before you register.</p>
+
+    <div class="w-faq">
+      <div class="w-faq-item">
+        <button class="w-faq-q" type="button">
+          <span>Is this seminar really free?</span>
+          <span class="w-faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="w-faq-a">Yes, completely free! There is no catch. We just want you to experience the joy of doodling and understand what the Doo Doodle method is all about. You do not need to pay anything to attend.</div>
+      </div>
+      <div class="w-faq-item">
+        <button class="w-faq-q" type="button">
+          <span>Do I need any art experience or supplies?</span>
+          <span class="w-faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="w-faq-a">None at all! Zero art experience is needed. All you need is a pen or pencil and a piece of paper for the live doodle activity. If you do not have those, you can still watch and learn — it is totally fine.</div>
+      </div>
+      <div class="w-faq-item">
+        <button class="w-faq-q" type="button">
+          <span>Is this for my child or for me as an adult?</span>
+          <span class="w-faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="w-faq-a">Both! The seminar covers the Doo Doodle Kids Course (ages 5–14) and the Adults Course. Parents are welcome to attend with or without their child. Adults who want to learn for themselves are equally welcome.</div>
+      </div>
+      <div class="w-faq-item">
+        <button class="w-faq-q" type="button">
+          <span>What platform is the seminar on?</span>
+          <span class="w-faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="w-faq-a">The seminar is held live on Zoom. Once you register, you will receive the Zoom link directly on your WhatsApp or email. Make sure you have the Zoom app installed before the session.</div>
+      </div>
+      <div class="w-faq-item">
+        <button class="w-faq-q" type="button">
+          <span>What happens after the seminar?</span>
+          <span class="w-faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="w-faq-a">Attendees receive an exclusive early bird offer to enroll in the full 20-session Doo Doodle course at a special price — available only to seminar participants. There is no pressure to enroll — but if you are ready, the offer will be right there!</div>
+      </div>
+      <div class="w-faq-item">
+        <button class="w-faq-q" type="button">
+          <span>Will the seminar be recorded?</span>
+          <span class="w-faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="w-faq-a">The seminar is designed as a live, interactive experience and the exclusive early bird offer is only available during the live session. We strongly recommend attending live to get the full experience and the special offer!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REGISTER MODAL ═════════════════════════════════════════════════════ -->
+<div id="w-modal-overlay" aria-modal="true" role="dialog" aria-label="Register for Seminar">
+  <div id="w-modal">
+    <button id="w-modal-close" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <!-- Success state -->
+    <div class="w-success" id="w-success">
+      <div class="w-success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>You are registered!</h3>
+      <p>We will send your Zoom link to your email and WhatsApp before the seminar. See you there!</p>
+    </div>
+
+    <!-- Registration form -->
+    <span class="w-label" style="display:block; text-align:center; margin-bottom:4px;">Register Now</span>
+    <h2 class="w-h2" style="text-align:center; font-size:1.7rem; margin-bottom:8px;">Save your free spot</h2>
+    <p style="text-align:center; color:var(--w-dim); font-size:.9rem; margin-bottom:28px;">Online on Zoom · 60 min · Free to attend</p>
+
+    <form class="w-form" id="w-form" novalidate>
+      <div class="w-field">
+        <label for="f-name">Full Name</label>
+        <input type="text" id="f-name" name="name" placeholder="Your name" required autocomplete="name"/>
+      </div>
+      <div class="w-field">
+        <label for="f-age">Age</label>
+        <input type="number" id="f-age" name="age" placeholder="Your age" min="5" max="99" required/>
+      </div>
+      <div class="w-field">
+        <label for="f-phone">Phone Number</label>
+        <input type="tel" id="f-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel"/>
+      </div>
+      <div class="w-field">
+        <label for="f-email">Email Address</label>
+        <input type="email" id="f-email" name="email" placeholder="you@email.com" required autocomplete="email"/>
+      </div>
+      <div class="w-field">
+        <label for="f-date">Preferred Date</label>
+        <input type="date" id="f-date" name="date" required/>
+      </div>
+      <div class="w-field w-form-full">
+        <label>Time Slot</label>
+        <div class="w-slot-loading" id="slot-loading">Loading available slots…</div>
+        <div class="w-slot-radios" id="slot-radios" style="display:none;"></div>
+        <input type="hidden" id="f-slot" name="slot"/>
+      </div>
+      <button type="submit" class="w-submit" id="w-submit-btn">Register for Free →</button>
+      <p class="w-form-note">No payment required · Zoom link sent to your email</p>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="fl">
+    <svg width="44" height="35" viewBox="0 0 1347.773804 1084.415894" fill="none"><use href="#brand-logo"/></svg>
+  </div>
+  <ul class="fls">
+    <li><a href="../">Home</a></li>
+    <li><a href="../#about">About</a></li>
+    <li><a href="../#pricing">Pricing</a></li>
+    <li><a href="../#contact">Contact</a></li>
+  </ul>
+  <small>© 2025 Doo Doodle. All rights reserved.</small>
+</footer>
+
+<!-- ═══ SCRIPTS ════════════════════════════════════════════════════════════ -->
+<script>window.DOODLE_PATH = '../doodle/';</script>
+<script src="../js/cursor.js"></script>
+
+<script>
+// ════════════════════════════════════════════════════════════════════════════
+// WEBINAR CONFIG — fill in your values before going live
+// ════════════════════════════════════════════════════════════════════════════
+const WEBINAR = {
+  // ── SLOTS from Google Sheet ──────────────────────────────────────────────
+  // 1. Open your Google Sheet
+  // 2. Go to File → Share → Publish to web
+  // 3. Choose "Sheet1" (or your sheet name) and "Comma-separated values (.csv)"
+  // 4. Click Publish and paste the URL below
+  //
+  // Your sheet should have TWO columns (no header row needed, or add one):
+  //   Column A: Slot label  e.g.  "Morning – 10:00 AM to 11:00 AM"
+  //   Column B: Available   e.g.  TRUE  or  FALSE
+  //
+  // To remove a slot, set Column B to FALSE or delete the row.
+  slotsSheetCsvUrl: "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL",
+
+  // ── FORM SUBMISSION via Google Apps Script ───────────────────────────────
+  // 1. Open your Google Sheet → Extensions → Apps Script
+  // 2. Paste the Apps Script code from the comment below and deploy as Web App
+  // 3. Paste the deployed Web App URL here
+  //
+  // Apps Script code:
+  // ------------------------------------------------------------------
+  // function doPost(e) {
+  //   const sheet = SpreadsheetApp.getActiveSpreadsheet()
+  //     .getSheetByName("Registrations"); // make sure this sheet exists
+  //   const d = JSON.parse(e.postData.contents);
+  //   sheet.appendRow([
+  //     new Date(), d.name, d.age, d.phone, d.email, d.date, d.slot
+  //   ]);
+  //   return ContentService
+  //     .createTextOutput(JSON.stringify({ status: "ok" }))
+  //     .setMimeType(ContentService.MimeType.JSON);
+  // }
+  // ------------------------------------------------------------------
+  formSubmitUrl: "YOUR_APPS_SCRIPT_WEB_APP_URL",
+};
+// ════════════════════════════════════════════════════════════════════════════
+
+// ── Scroll reveal ─────────────────────────────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add("visible"); revealObserver.unobserve(el.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+// ── Nav scroll behaviour ──────────────────────────────────────────────────
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("on", window.scrollY > 20);
+}, { passive: true });
+
+// ── FAQ accordion ────────────────────────────────────────────────────────
+document.querySelectorAll(".w-faq-q").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const item = btn.closest(".w-faq-item");
+    const isOpen = item.classList.contains("open");
+    document.querySelectorAll(".w-faq-item.open").forEach(el => el.classList.remove("open"));
+    if (!isOpen) item.classList.add("open");
+  });
+});
+
+// ── Slots from Google Sheet ──────────────────────────────────────────────
+function renderSlotRadios(slots) {
+  const loadingEl = document.getElementById("slot-loading");
+  const radiosEl  = document.getElementById("slot-radios");
+  const hiddenEl  = document.getElementById("f-slot");
+
+  loadingEl.style.display = "none";
+
+  if (slots.length === 0) {
+    loadingEl.textContent = "No slots available right now.";
+    loadingEl.style.display = "block";
+    return;
+  }
+
+  radiosEl.style.display = "flex";
+  slots.forEach(slot => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "w-slot-chip";
+    btn.textContent = slot;
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".w-slot-chip").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      hiddenEl.value = slot;
+      hiddenEl.style.borderColor = ""; // clear error state
+    });
+    radiosEl.appendChild(btn);
+  });
+}
+
+async function loadSlots() {
+  const loadingEl = document.getElementById("slot-loading");
+
+  if (!WEBINAR.slotsSheetCsvUrl || WEBINAR.slotsSheetCsvUrl === "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL") {
+    renderSlotRadios([
+      "Morning – 10:00 AM to 11:00 AM",
+      "Evening – 6:00 PM to 7:00 PM",
+    ]);
+    return;
+  }
+
+  try {
+    const res  = await fetch(WEBINAR.slotsSheetCsvUrl);
+    const text = await res.text();
+    const rows = text.trim().split("\n").map(r => r.split(","));
+    const slots = rows
+      .filter(r => r[1] && r[1].trim().toUpperCase() === "TRUE")
+      .map(r => r[0].trim().replace(/^"|"$/g, ""));
+    renderSlotRadios(slots);
+  } catch {
+    loadingEl.textContent = "Could not load slots. Please contact us directly.";
+  }
+}
+loadSlots();
+
+// ── Form submission ──────────────────────────────────────────────────────
+document.getElementById("w-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const btn  = document.getElementById("w-submit-btn");
+  const form = e.target;
+
+  // Basic validation
+  const required = ["f-name", "f-age", "f-phone", "f-email", "f-date"];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = "var(--w-coral)"; valid = false; }
+    else el.style.borderColor = "";
+  });
+  if (!document.getElementById("f-slot").value) {
+    document.getElementById("slot-radios").style.outline = "2px solid rgba(255,53,32,.4)";
+    document.getElementById("slot-radios").style.borderRadius = "12px";
+    valid = false;
+  } else {
+    document.getElementById("slot-radios").style.outline = "";
+  }
+  if (!valid) return;
+
+  btn.disabled = true;
+  btn.textContent = "Registering…";
+
+  const payload = {
+    name:  document.getElementById("f-name").value.trim(),
+    age:   document.getElementById("f-age").value.trim(),
+    phone: document.getElementById("f-phone").value.trim(),
+    email: document.getElementById("f-email").value.trim(),
+    date:  document.getElementById("f-date").value,
+    slot:  document.getElementById("f-slot").value,
+  };
+
+  // If no submit URL configured yet, just show success (dev mode)
+  if (!WEBINAR.formSubmitUrl || WEBINAR.formSubmitUrl === "YOUR_APPS_SCRIPT_WEB_APP_URL") {
+    console.log("Registration (dev mode):", payload);
+    showSuccess();
+    return;
+  }
+
+  try {
+    await fetch(WEBINAR.formSubmitUrl, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      // Google Apps Script needs no-cors when called cross-origin
+      mode: "no-cors",
+    });
+    showSuccess();
+  } catch {
+    btn.disabled = false;
+    btn.textContent = "Register for Free →";
+    alert("Something went wrong. Please try again or contact us directly.");
+  }
+});
+
+function showSuccess() {
+  document.getElementById("w-form").style.display    = "none";
+  document.getElementById("w-success").style.display = "flex";
+}
+
+// ── Modal open / close ────────────────────────────────────────────────────
+const overlay = document.getElementById("w-modal-overlay");
+
+function openModal() {
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeModal() {
+  overlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll("[data-register]").forEach(el => {
+  el.addEventListener("click", openModal);
+});
+document.getElementById("w-modal-close").addEventListener("click", closeModal);
+overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+</script>
+
+</body>
+</html>

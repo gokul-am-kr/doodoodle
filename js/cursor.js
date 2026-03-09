@@ -31,7 +31,7 @@ document.querySelectorAll('button,a,.mc,.bi,.sc,.tc,.pc').forEach(el=>{
 
   const trail = FILES.map((f, i) => {
     const img = document.createElement('img');
-    img.src = `doodle/${f}.svg`;
+    img.src = (window.DOODLE_PATH || 'doodle/') + f + '.svg';
     img.style.cssText = [
       'position:fixed',
       `width:${SIZES[i]}px`,

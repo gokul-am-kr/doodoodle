@@ -524,8 +524,6 @@ body.site-revealed footer {
 /* ── MARQUEE GALLERY ─────────────────────────────── */
 .gal-marquee-wrap {
   display:flex; flex-direction:column; gap:20px;
-  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
-  mask-image:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
 }
 .gal-track {
   display:flex; gap:18px; width:max-content;
