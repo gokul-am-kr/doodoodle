@@ -16,8 +16,8 @@
      Leave DRIVE_FOLDER_ID empty, add filenames to GALLERY_FILES
 ══════════════════════════════════════════════════ */
 
-const DRIVE_FOLDER_ID = '';          // ← paste your folder ID here
-const DRIVE_API_KEY   = '';          // ← paste your API key here
+const DRIVE_FOLDER_ID = '1O53IHoA4vt1HgTkEF-jY51Nh6oo1xD3q';
+const DRIVE_API_KEY   = 'AIzaSyDK1DfxoJfanql7Jd15-f5ObKlDIFKLr2I';
 
 const GALLERY_FILES = [
   "IMG_4159 2.JPG",

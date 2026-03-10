@@ -431,7 +431,7 @@ slotsSheetCsvUrl: "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL",
   if (!logoSvg) return;
   const r = logoSvg.getBoundingClientRect();
 
-  const SIZE = 72; // px — fixed display size for all shapes
+  const SIZE = 120; // px — fixed display size for all shapes
 
   const shapes = [
     { type: 'svg',  id: 'brand-logo', vb: '0 0 1347.773804 1084.415894' },
@@ -484,26 +484,32 @@ slotsSheetCsvUrl: "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL",
 
     if (s < 5) { leaf.style.opacity = 0; return; }
 
-    // Fall top → bottom of viewport
-    const fallY = progress * (window.innerHeight - SIZE - 20);
+    // Fall top → bottom of viewport (with slight vertical wobble)
+    const fallY = progress * (window.innerHeight - SIZE - 20)
+      + Math.sin(progress * Math.PI * 6.3 + 1.1) * 18
+      + Math.sin(progress * Math.PI * 13.7 + 2.4) * 7;
 
-    // Full-width sway
+    // Organic sway — sum of 3 inharmonic sine waves
     const pad        = 12;
     const leftLimit  = pad - r.left;
     const rightLimit = window.innerWidth - SIZE - pad - r.left;
     const midOffset  = (leftLimit + rightLimit) / 2;
     const amplitude  = (rightLimit - leftLimit) / 2;
-    const swayX      = midOffset + Math.sin(progress * Math.PI * 8) * amplitude;
+    const swayX      = midOffset
+      + Math.sin(progress * Math.PI * 4.1 + 0.3)  * amplitude * 0.55
+      + Math.sin(progress * Math.PI * 9.7 + 1.8)  * amplitude * 0.30
+      + Math.sin(progress * Math.PI * 2.3 + 3.1)  * amplitude * 0.15;
 
-    // Rotation
-    const rot = Math.sin(progress * Math.PI * 8 + 0.5) * 22;
+    // Rotation — two layered waves for irregular tumble
+    const rot = Math.sin(progress * Math.PI * 4.1 + 0.5) * 20
+              + Math.sin(progress * Math.PI * 10.3 + 1.2) * 9;
 
     // Fade in/out
     const opacity = progress < 0.05
-      ? (progress / 0.05) * 0.9
+      ? (progress / 0.05) * 0.25
       : progress > 0.9
-        ? ((1 - progress) / 0.1) * 0.9
-        : 0.9;
+        ? ((1 - progress) / 0.1) * 0.25
+        : 0.25;
 
     leaf.style.opacity   = opacity;
     leaf.style.transform = `translate(${swayX}px, ${fallY}px) rotate(${rot}deg)`;

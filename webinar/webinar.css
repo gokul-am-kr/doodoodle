@@ -85,7 +85,7 @@ nav {
 #w-hero {
   min-height: 100svh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 130px 24px 80px;
+  text-align: center; padding: 90px 24px 60px;
   background: var(--w-bg);
   position: relative; overflow: hidden;
 }
@@ -194,6 +194,11 @@ nav {
 .w-hero-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(255,53,32,.35); }
 .w-hero-cta:active { transform: scale(.98); }
 
+/* ── HERO TITLE — light theme overrides ──────────────────────────────────── */
+#w-hero .hero-hl { color: var(--w-text); }
+#w-hero .hl-a,
+#w-hero .hl-c { color: var(--w-text); -webkit-text-fill-color: var(--w-text); }
+
 .w-urgency {
   margin-top: 28px; padding: 14px 24px;
   background: var(--w-gold); border: 1.5px solid rgba(245,158,11,.25);
@@ -204,7 +209,7 @@ nav {
 .w-urgency strong { color: #92400E; }
 
 /* ── SECTION COMMON ──────────────────────────────────────────────────────── */
-.w-section { padding: 100px 24px; }
+.w-section { padding: 72px 24px; }
 .w-section.w-peach { background: var(--w-peach); }
 .w-section.w-mint  { background: var(--w-mint); }
 .w-section.w-sky   { background: var(--w-sky); }
@@ -528,6 +533,26 @@ nav {
 footer {
   background: #1A1410 !important;
   position: relative; z-index: 1;
+}
+
+/* ── LEAF LOGO ANIMATION ─────────────────────────────────────────────────── */
+@keyframes logo-leaf {
+  0%   { transform: translate(  0px,   0vh) rotate(  0deg); opacity: .85; }
+  12%  { transform: translate( 38px,  10vh) rotate( 13deg); opacity: .80; }
+  25%  { transform: translate(-22px,  22vh) rotate( -8deg); opacity: .72; }
+  38%  { transform: translate( 52px,  36vh) rotate( 19deg); opacity: .62; }
+  52%  { transform: translate(-35px,  52vh) rotate(-13deg); opacity: .48; }
+  65%  { transform: translate( 44px,  66vh) rotate( 17deg); opacity: .34; }
+  80%  { transform: translate(-18px,  82vh) rotate( -7deg); opacity: .18; }
+  100% { transform: translate( 26px, 108vh) rotate( 11deg); opacity:  0;  }
+}
+.logo-leaf-clone {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  mix-blend-mode: multiply;
 }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
