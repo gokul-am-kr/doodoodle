@@ -33,7 +33,7 @@
   --font:    'Outfit', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--bg);
   color: var(--text);
@@ -426,7 +426,7 @@ h2 { font-family:var(--font); font-size:clamp(36px,5vw,68px); font-weight:900; l
 /* ── INSTRUCTOR ──────────────────────────────────────── */
 #instructor { position:relative; overflow:hidden; }
 .inst-in { display:grid; grid-template-columns:auto 1fr; gap:90px; align-items:center; max-width:960px; margin:0 auto; }
-.inst-pw { position:relative; flex-shrink:0; width:320px; overflow:hidden; border-radius:22px; perspective:600px; transform-style:preserve-3d; }
+.inst-pw { position:relative; flex-shrink:0; width:320px; overflow:hidden; border-radius:22px; }
 .inst-ph { width:100%; aspect-ratio:4/5; border-radius:22px; display:block; object-fit:cover; object-position:center top; will-change:transform; }
 .inst-pw .f1, .inst-pw .f2 { will-change:transform; }
 .inst-nm { font-size:46px; font-weight:900; margin-bottom:6px; letter-spacing:-.04em; }

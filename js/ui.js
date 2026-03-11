@@ -451,47 +451,65 @@ document.querySelectorAll('.btn-pri, .n-cta').forEach(btn => {
 
   const overlays = pw.querySelectorAll('.f1, .f2');
 
-  /* -1 … +1 target values, lerped toward in rAF */
   let targetX = 0, targetY = 0;
   let currentX = 0, currentY = 0;
+  let visible   = false;   /* only run rAF when section is on screen */
+  let scrolling = false;   /* freeze gyro during scroll to stop wobble */
+  let scrollTimer;
+  let rafId;
 
-  const PHOTO_MAX    = 14;   /* px the photo travels (background layer) */
-  const OVERLAY_MULTI = 2.4; /* overlays travel further — feel "closer"  */
+  const PHOTO_MAX     = 14;
+  const OVERLAY_MULTI = 2.4;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
 
-  (function tick() {
+  function tick() {
+    if (!visible) { rafId = null; return; }
+
     currentX = lerp(currentX, targetX, 0.07);
     currentY = lerp(currentY, targetY, 0.07);
 
     const px = currentX * PHOTO_MAX;
     const py = currentY * PHOTO_MAX;
 
-    /* photo shifts opposite the tilt — sits "behind" */
-    photo.style.transform = `translate(${-px}px, ${-py}px)`;
-
-    /* overlays follow the tilt — float "in front" */
+    photo.style.transform = `translate3d(${-px}px, ${-py}px, 0)`;
     overlays.forEach(el => {
-      el.style.transform = `translate(${px * OVERLAY_MULTI}px, ${py * OVERLAY_MULTI}px)`;
+      el.style.transform = `translate3d(${px * OVERLAY_MULTI}px, ${py * OVERLAY_MULTI}px, 0)`;
     });
 
-    requestAnimationFrame(tick);
-  })();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function startTick() {
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }
+
+  /* Pause gyro shifts while the page is scrolling */
+  window.addEventListener('scroll', () => {
+    scrolling = true;
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => { scrolling = false; }, 150);
+  }, { passive: true });
+
+  /* Only animate when section is visible */
+  new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    if (visible) startTick();
+  }, { threshold: 0.05 }).observe(section);
 
   /* ── Gyroscope (mobile) ───────────────────────────── */
+  const isMobile = () => window.matchMedia('(pointer:coarse)').matches;
+
   function startGyro() {
     window.addEventListener('deviceorientation', e => {
-      /* gamma: left/right tilt (-90…90)
-         beta:  front/back tilt (-180…180), ~45° is flat on table */
+      if (scrolling) return;                /* ignore during scroll */
       targetX = Math.max(-1, Math.min(1,  (e.gamma || 0) / 25));
       targetY = Math.max(-1, Math.min(1, ((e.beta  || 0) - 45) / 25));
     }, { passive: true });
   }
 
-  if (typeof DeviceOrientationEvent !== 'undefined') {
+  if (isMobile() && typeof DeviceOrientationEvent !== 'undefined') {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-      /* iOS 13+ requires a user-gesture to grant permission.
-         We ask on the first tap anywhere in the section. */
       section.addEventListener('click', function askOnce() {
         DeviceOrientationEvent.requestPermission()
           .then(state => { if (state === 'granted') startGyro(); })
@@ -503,15 +521,14 @@ document.querySelectorAll('.btn-pri, .n-cta').forEach(btn => {
     }
   }
 
-  /* ── Mouse fallback (desktop) ─────────────────────── */
-  section.addEventListener('mousemove', e => {
-    const r = section.getBoundingClientRect();
-    targetX = (e.clientX - r.left) / r.width  * 2 - 1;
-    targetY = (e.clientY - r.top)  / r.height * 2 - 1;
-  }, { passive: true });
+  /* ── Mouse fallback (desktop only) ───────────────── */
+  if (!isMobile()) {
+    section.addEventListener('mousemove', e => {
+      const r = section.getBoundingClientRect();
+      targetX = (e.clientX - r.left) / r.width  * 2 - 1;
+      targetY = (e.clientY - r.top)  / r.height * 2 - 1;
+    }, { passive: true });
 
-  section.addEventListener('mouseleave', () => {
-    targetX = 0;
-    targetY = 0;
-  });
+    section.addEventListener('mouseleave', () => { targetX = 0; targetY = 0; });
+  }
 })();
