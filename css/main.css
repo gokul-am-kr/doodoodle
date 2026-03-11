@@ -995,3 +995,100 @@ footer small { font-size:13px; color:var(--dim); }
   /* Hide parallax world entirely on mobile — mouse-driven, causes clutter on touch */
   #pworld { display:none; }
 }
+
+/* ── DIGITAL SANDBOX ─────────────────────────────────── */
+#sandbox {
+  position:relative; overflow:hidden;
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  display:flex; flex-direction:column;
+  align-items:center; gap:44px;
+  text-align:center;
+}
+#sandbox .sec-label { color:var(--coral); justify-content:center; }
+#sandbox .sec-label::before { background:var(--coral); }
+#sandbox h2 { margin-bottom:0; }
+.sb-head { max-width:560px; }
+.sb-sub {
+  max-width:440px; margin:14px auto 0;
+  font-size:15px; line-height:1.72; color:var(--dim);
+}
+
+/* Stage — the canvas wrapper */
+.sb-stage {
+  position:relative; width:100%; max-width:620px;
+  border-radius:22px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  background:#0E0C14;
+  box-shadow:0 0 0 1px rgba(255,255,255,.03), 0 40px 80px rgba(0,0,0,.5);
+  cursor:crosshair; touch-action:none;
+  transition:box-shadow .5s ease, border-color .5s ease;
+}
+.sb-stage.success {
+  border-color:rgba(255,53,32,.45);
+  box-shadow:0 0 0 2px var(--coral), 0 0 48px rgba(255,53,32,.22), 0 40px 80px rgba(0,0,0,.5);
+}
+#doodle-canvas {
+  display:block; width:100%; height:320px; touch-action:none;
+}
+
+/* Hint overlay */
+.sb-hint {
+  position:absolute; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:12px;
+  color:rgba(255,255,255,.28); font-size:13px; letter-spacing:.02em;
+  pointer-events:none; transition:opacity .35s;
+}
+.sb-hint.hidden { opacity:0; }
+
+/* Clear button */
+.sb-clear {
+  position:absolute; bottom:14px; right:14px;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.4); border-radius:8px;
+  padding:6px 12px; font-size:12px; font-family:var(--font);
+  cursor:pointer; opacity:0; pointer-events:none;
+  transition:opacity .3s, background .2s, color .2s;
+}
+.sb-clear.visible { opacity:1; pointer-events:all; }
+.sb-clear:hover   { background:rgba(255,255,255,.14); color:rgba(255,255,255,.78); }
+
+/* Reveal card */
+.sb-reveal {
+  max-width:460px; width:100%;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px; padding:36px 40px;
+  opacity:0; transform:translateY(30px) scale(0.97);
+  pointer-events:none;
+  transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+}
+.sb-reveal.visible { opacity:1; transform:none; pointer-events:all; }
+.sb-star {
+  font-size:26px; color:var(--gold); margin-bottom:12px; display:block;
+  animation:sb-twirl 12s linear infinite;
+}
+@keyframes sb-twirl { to { transform:rotate(360deg); } }
+.sb-reveal h3 { font-size:20px; font-weight:800; color:var(--text); margin-bottom:6px; }
+.sb-reveal > p { font-size:14px; color:var(--dim); margin-bottom:22px; }
+.sb-coupon {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,53,32,.08); border:1px solid rgba(255,53,32,.22);
+  border-radius:12px; padding:12px 20px; margin-bottom:24px;
+  font-size:14px; flex-wrap:wrap; justify-content:center;
+}
+.sb-c-label, .sb-c-off { color:var(--dim); font-size:13px; }
+.sb-c-code {
+  font-size:18px; font-weight:700; font-family:monospace;
+  color:var(--coral); letter-spacing:.1em;
+  background:rgba(255,53,32,.12); padding:3px 10px; border-radius:6px;
+}
+.sb-enroll { width:100%; display:flex; align-items:center; justify-content:center; }
+
+@media(max-width:600px) {
+  #doodle-canvas  { height:240px; }
+  .sb-reveal      { padding:28px 22px; }
+  .sb-head        { padding:0 8px; }
+}

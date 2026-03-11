@@ -323,6 +323,46 @@ M729.704739 654.877155 C734.403713 657.655841 737.888821 660.840656 736.691067 6
   </div>
 </section>
 
+<!-- ═══ SANDBOX ══════════════════════════════════════ -->
+<section id="sandbox">
+  <div class="sd" data-sy="-0.08" style="top:-40px;right:-30px;opacity:.12;">
+    <img src="doodle/cat.svg" width="180" style="transform:rotate(-15deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+  <div class="sd" data-sy="0.10" style="bottom:-30px;left:-20px;opacity:.10;">
+    <img src="doodle/snail.svg" width="160" style="transform:rotate(20deg);filter:brightness(0) invert(1);display:block;">
+  </div>
+
+  <div class="sb-head">
+    <div class="sec-label rv">Try it right now</div>
+    <h2 class="rv">Draw a circle.<br><span class="hic">Unlock a reward.</span></h2>
+    <p class="sb-sub rv d1">The first mark is always the hardest. So make it here — no stakes, no rules. Just draw a circle and see what happens.</p>
+  </div>
+
+  <div class="sb-stage rv d2" id="sb-stage">
+    <canvas id="doodle-canvas" aria-label="Drawing canvas — draw a circle to unlock a reward"></canvas>
+    <div class="sb-hint" id="sb-hint">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <circle cx="17" cy="17" r="12" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 3.5"/>
+        <circle cx="17" cy="5.5" r="1.8" fill="currentColor"/>
+      </svg>
+      <span>Draw a circle anywhere on this canvas</span>
+    </div>
+    <button class="sb-clear" id="sb-clear">↺&nbsp;&nbsp;Clear</button>
+  </div>
+
+  <div class="sb-reveal" id="sb-reveal">
+    <div class="sb-star">✦</div>
+    <h3>You're already a doodler.</h3>
+    <p>Your first mark earns you a little reward.</p>
+    <div class="sb-coupon">
+      <span class="sb-c-label">Use code</span>
+      <code class="sb-c-code">FIRSTMARK</code>
+      <span class="sb-c-off">— ₹150 off</span>
+    </div>
+    <button class="btn-pc bpp sb-enroll" data-plan="lifetime" data-amount="134900" data-label="Lifetime Access — ₹1,349">Claim my discount →</button>
+  </div>
+</section>
+
 <!-- ═══ PRICING ════════════════════════════════════════ -->
 <section id="pricing" class="s-light s-alt">
   <div class="sd" data-sy="-0.06" style="bottom:-30px;right:-40px;opacity:.15;">
@@ -653,6 +693,7 @@ M729.704739 654.877155 C734.403713 657.655841 737.888821 660.840656 736.691067 6
 <script src="js/cursor.js"></script>
 <script src="js/parallax.js"></script>
 <script src="js/ui.js"></script>
+<script src="js/sandbox.js"></script>
 <script src="js/config.js"></script>
 <script src="js/gallery.js"></script>
 </body>
