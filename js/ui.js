@@ -444,6 +444,9 @@ document.querySelectorAll('.btn-pri, .n-cta').forEach(btn => {
    separation creates the illusion of depth.
 ══════════════════════════════════════════════════ */
 (function gyroParallax() {
+  /* Disabled on touch/mobile devices to prevent scroll wobble */
+  if (window.matchMedia('(pointer:coarse)').matches) return;
+
   const section  = document.getElementById('instructor');
   const photo    = document.querySelector('.inst-ph');
   const pw       = document.querySelector('.inst-pw');
