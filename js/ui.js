@@ -433,3 +433,85 @@ document.querySelectorAll('.btn-pri, .n-cta').forEach(btn => {
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 })();
+
+/* ══════════════════════════════════════════════════
+   INSTRUCTOR PHOTO — GYROSCOPE / MOUSE PARALLAX
+   Replicates the iPhone home-screen depth effect.
+   On mobile: gyroscope drives the tilt.
+   On desktop: mouse position drives it.
+   Photo (background layer) moves opposite to tilt;
+   doodle overlays (foreground) move with it — this
+   separation creates the illusion of depth.
+══════════════════════════════════════════════════ */
+(function gyroParallax() {
+  const section  = document.getElementById('instructor');
+  const photo    = document.querySelector('.inst-ph');
+  const pw       = document.querySelector('.inst-pw');
+  if (!photo || !pw || !section) return;
+
+  const overlays = pw.querySelectorAll('.f1, .f2');
+
+  /* -1 … +1 target values, lerped toward in rAF */
+  let targetX = 0, targetY = 0;
+  let currentX = 0, currentY = 0;
+
+  const PHOTO_MAX    = 14;   /* px the photo travels (background layer) */
+  const OVERLAY_MULTI = 2.4; /* overlays travel further — feel "closer"  */
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  (function tick() {
+    currentX = lerp(currentX, targetX, 0.07);
+    currentY = lerp(currentY, targetY, 0.07);
+
+    const px = currentX * PHOTO_MAX;
+    const py = currentY * PHOTO_MAX;
+
+    /* photo shifts opposite the tilt — sits "behind" */
+    photo.style.transform = `translate(${-px}px, ${-py}px)`;
+
+    /* overlays follow the tilt — float "in front" */
+    overlays.forEach(el => {
+      el.style.transform = `translate(${px * OVERLAY_MULTI}px, ${py * OVERLAY_MULTI}px)`;
+    });
+
+    requestAnimationFrame(tick);
+  })();
+
+  /* ── Gyroscope (mobile) ───────────────────────────── */
+  function startGyro() {
+    window.addEventListener('deviceorientation', e => {
+      /* gamma: left/right tilt (-90…90)
+         beta:  front/back tilt (-180…180), ~45° is flat on table */
+      targetX = Math.max(-1, Math.min(1,  (e.gamma || 0) / 25));
+      targetY = Math.max(-1, Math.min(1, ((e.beta  || 0) - 45) / 25));
+    }, { passive: true });
+  }
+
+  if (typeof DeviceOrientationEvent !== 'undefined') {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      /* iOS 13+ requires a user-gesture to grant permission.
+         We ask on the first tap anywhere in the section. */
+      section.addEventListener('click', function askOnce() {
+        DeviceOrientationEvent.requestPermission()
+          .then(state => { if (state === 'granted') startGyro(); })
+          .catch(() => {});
+        section.removeEventListener('click', askOnce);
+      }, { once: true });
+    } else {
+      startGyro();
+    }
+  }
+
+  /* ── Mouse fallback (desktop) ─────────────────────── */
+  section.addEventListener('mousemove', e => {
+    const r = section.getBoundingClientRect();
+    targetX = (e.clientX - r.left) / r.width  * 2 - 1;
+    targetY = (e.clientY - r.top)  / r.height * 2 - 1;
+  }, { passive: true });
+
+  section.addEventListener('mouseleave', () => {
+    targetX = 0;
+    targetY = 0;
+  });
+})();

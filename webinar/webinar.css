@@ -38,6 +38,12 @@ nav {
 }
 .n-logo { color: var(--w-text) !important; }
 .n-links { display: none; }
+.n-home-btn {
+  text-decoration: none; font-family: var(--font); font-size: 14px; font-weight: 600;
+  color: var(--w-text); padding: 8px 16px; border-radius: 8px;
+  border: 1.5px solid var(--w-border); transition: border-color .2s, background .2s;
+}
+.n-home-btn:hover { border-color: var(--w-coral); background: var(--w-coral-s); color: var(--w-coral); }
 
 /* ── ANIMATION UTILITIES ─────────────────────────────────────────────────── */
 .reveal {
@@ -85,7 +91,7 @@ nav {
 #w-hero {
   min-height: 100svh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 90px 24px 60px;
+  text-align: center; padding: 0 24px 100px; margin-top: -220px;
   background: var(--w-bg);
   position: relative; overflow: hidden;
 }
@@ -181,17 +187,20 @@ nav {
 .w-chip svg { width: 14px; height: 14px; color: var(--w-coral); flex-shrink: 0; }
 
 /* Hero CTA */
+@keyframes cta-glow {
+  0%, 100% { box-shadow: 0 8px 32px rgba(255,53,32,.28), 0 0 0 0 rgba(255,53,32,.4); }
+  50%       { box-shadow: 0 8px 32px rgba(255,53,32,.38), 0 0 0 10px rgba(255,53,32,0); }
+}
 .w-hero-cta {
   display: inline-flex; align-items: center; gap: 10px;
   background: var(--w-coral); color: white;
   font-family: var(--font); font-size: 1.05rem; font-weight: 700;
   padding: 17px 40px; border-radius: 100px;
   text-decoration: none; border: none; cursor: pointer;
-  box-shadow: 0 8px 32px rgba(255,53,32,.28);
   transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
-  animation: headline-in .8s cubic-bezier(.22,1,.36,1) .55s both;
+  animation: headline-in .8s cubic-bezier(.22,1,.36,1) .55s both, cta-glow 2s ease-in-out 1.5s infinite;
 }
-.w-hero-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(255,53,32,.35); }
+.w-hero-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(255,53,32,.5); animation: none; }
 .w-hero-cta:active { transform: scale(.98); }
 
 /* ── HERO TITLE — light theme overrides ──────────────────────────────────── */
@@ -233,6 +242,11 @@ nav {
   font-size: 1.05rem; color: var(--w-dim);
   max-width: 580px; margin-bottom: 60px; line-height: 1.75;
 }
+
+/* Center section headers */
+.w-section .w-label,
+.w-section .w-h2,
+.w-section .w-intro { display: block; text-align: center; margin-left: auto; margin-right: auto; }
 
 /* ── FEATURE CARDS ───────────────────────────────────────────────────────── */
 .w-cards {
