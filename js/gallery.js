@@ -114,12 +114,22 @@ async function resolveImages() {
       item.className = 'gal-item';
       item.style.setProperty('--gr', ROTS[i % ROTS.length] + 'deg');
       item.innerHTML = `
-        <img src="${img.thumb}" alt="${img.label}" loading="lazy" draggable="false">
+        <img src="${img.thumb}" alt="${img.label}" draggable="false">
         <div class="gal-ov">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
           </svg>
         </div>`;
+      const imgEl = item.querySelector('img');
+      if (imgEl.complete) {
+        imgEl.classList.add('img-loaded');
+        item.classList.add('img-loaded');
+      } else {
+        imgEl.addEventListener('load', () => {
+          imgEl.classList.add('img-loaded');
+          item.classList.add('img-loaded');
+        });
+      }
       item.addEventListener('click', () => openLb(origIdx >= 0 ? origIdx : i % images.length));
       track.appendChild(item);
     });
