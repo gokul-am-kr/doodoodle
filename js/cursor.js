@@ -1,6 +1,13 @@
 /* ══════════════════════════════════════════════════
    CURSOR
 ══════════════════════════════════════════════════ */
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  // Touch device — hide cursor elements and skip all cursor logic
+  const _dot = document.getElementById('cdot');
+  const _ring = document.getElementById('cring');
+  if (_dot)  _dot.style.display  = 'none';
+  if (_ring) _ring.style.display = 'none';
+} else {
 const dot  = document.getElementById('cdot');
 const ring = document.getElementById('cring');
 let mx=-200, my=-200, rx=-200, ry=-200;
@@ -77,3 +84,4 @@ document.querySelectorAll('button,a,.mc,.bi,.sc,.tc,.pc').forEach(el=>{
     requestAnimationFrame(animTrail);
   })();
 })();
+} // end touch check

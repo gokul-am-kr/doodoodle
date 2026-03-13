@@ -282,7 +282,7 @@
   <div class="w-wrap">
     <div id="w-host">
       <div class="w-host-img">
-        <img src="../images/gokul.jpg" alt="Gokul — Creator of Doo Doodle" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;display:block;">
+        <img src="../images/gokul.webp" alt="Gokul — Creator of Doo Doodle" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;display:block;">
       </div>
       <div class="w-host-text">
         <span class="w-label">Meet Your Host</span>
@@ -445,10 +445,19 @@ const WEBINAR = {
   //   Column B: Available   e.g.  TRUE  or  FALSE
   //
   // To remove a slot, set Column B to FALSE or delete the row.
-slotsSheetCsvUrl: "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL",
+slotsSheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ35Mb7kdnuaty-BAmhfQruu528H7uPQpqfE6y4leAoKZtiVZpBD_A43wEJcivE2uZKVApx4QC8r2Ja/pub?gid=0&single=true&output=csv",
 
   // ── FORM SUBMISSION via Google Apps Script ───────────────────────────────
-  // 1. Open your Google Sheet → Extensions → Apps Script
+  // 1. Open your Google Sheet → Extensions → Apps Scri
+
+
+
+
+
+
+
+
+
   // 2. Paste the Apps Script code from the comment below and deploy as Web App
   // 3. Paste the deployed Web App URL here
   //
@@ -652,7 +661,7 @@ function renderSlotRadios(slots) {
 async function loadSlots() {
   const loadingEl = document.getElementById("slot-loading");
 
-  if (!WEBINAR.slotsSheetCsvUrl || WEBINAR.slotsSheetCsvUrl === "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL") {
+  if (!WEBINAR.slotsSheetCsvUrl || WEBINAR.slotsSheetCsvUrl === "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ35Mb7kdnuaty-BAmhfQruu528H7uPQpqfE6y4leAoKZtiVZpBD_A43wEJcivE2uZKVApx4QC8r2Ja/pub?gid=0&single=true&output=csv") {
     renderSlotRadios([
       "Morning – 10:00 AM to 11:00 AM",
       "Evening – 6:00 PM to 7:00 PM",

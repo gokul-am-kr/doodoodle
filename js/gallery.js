@@ -16,14 +16,21 @@
      Leave DRIVE_FOLDER_ID empty, add filenames to GALLERY_FILES
 ══════════════════════════════════════════════════ */
 
-const DRIVE_FOLDER_ID = '1O53IHoA4vt1HgTkEF-jY51Nh6oo1xD3q';
+const DRIVE_FOLDER_ID = '';
 const DRIVE_API_KEY   = 'AIzaSyDK1DfxoJfanql7Jd15-f5ObKlDIFKLr2I';
 
 const GALLERY_FILES = [
-  "IMG_4159 2.JPG",
-  "IMG_4159.JPG",
-  "IMG_4160.JPG",
-  "IMG_4161.JPG"
+  "d7m9owb9ynclua3rpbqq.webp",
+  "fsjtrqvo3gf9z5tijefx.webp",
+  "hggd8cvwbm9qohhr9w7b.webp",
+  "qesfxddojs0wuqgvwsqq.webp",
+  "rvmnmfukc6dgstzq4tge.webp",
+  "ssvfkjqmxbcbr0f0zi2m.webp",
+  "uegc1jkhwlxccizhwcqh.webp",
+  "vmmupckmcch2qqsqlpyv.webp",
+  "xmom7nmd4d6kzh2uklmq.webp",
+  "y0smitshutprklybf5ee.webp",
+  "zyp1er5vhcydzfjh31jv.webp"
 ];
 
 /* ── Image source helper ───────────────────────────

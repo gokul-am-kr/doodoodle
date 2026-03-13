@@ -420,6 +420,61 @@ document.querySelectorAll('.btn-pri, .n-cta').forEach(btn => {
 })();
 
 /* ══════════════════════════════════════════════════
+   NOTIFY ME MODAL
+══════════════════════════════════════════════════ */
+(function(){
+  const modal   = document.getElementById('notify-modal');
+  if (!modal) return;
+  const form    = document.getElementById('notify-form');
+  const success = document.getElementById('notify-success');
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyU_Q4PHysh3SkU88u7Ypec955qy7n80XsDEUsoyj9csmgFLKdmixmyT_xbbQ3EoIqyIA/exec';
+
+  const openModal  = () => { modal.classList.add('open');    document.body.style.overflow = 'hidden'; };
+  const closeModal = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
+
+  document.getElementById('notify-me-btn').addEventListener('click', openModal);
+  modal.querySelector('.notify-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+  function showErr(id) { const el = document.getElementById(id); if (el) el.classList.add('show'); }
+  function hideErr(id) { const el = document.getElementById(id); if (el) el.classList.remove('show'); }
+
+  const emailEl = document.getElementById('nf-email');
+  const phoneEl = document.getElementById('nf-phone');
+  if (emailEl) emailEl.addEventListener('input', () => hideErr('err-nf-email'));
+  if (phoneEl) phoneEl.addEventListener('input', () => hideErr('err-nf-phone'));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    hideErr('err-nf-email'); hideErr('err-nf-phone');
+
+    let valid = true;
+    if (!emailEl.value.trim() || !emailEl.value.includes('@')) { showErr('err-nf-email'); valid = false; }
+    if (!phoneEl.value.trim())                                  { showErr('err-nf-phone'); valid = false; }
+    if (!valid) return;
+
+    const btn = form.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+
+    fetch(SCRIPT_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type:      'notify',
+        email:     emailEl.value.trim(),
+        phone:     phoneEl.value.trim(),
+        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      })
+    }).catch(() => {}).finally(() => {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  });
+})();
+
+/* ══════════════════════════════════════════════════
    POLICIES MODAL
 ══════════════════════════════════════════════════ */
 (function(){
@@ -534,4 +589,49 @@ document.querySelectorAll('.btn-pri, .n-cta').forEach(btn => {
 
     section.addEventListener('mouseleave', () => { targetX = 0; targetY = 0; });
   }
+})();
+
+/* ══════════════════════════════════════════════════
+   TESTIMONIAL SLIDER — snap + spring inertia
+══════════════════════════════════════════════════ */
+(function tcSlider(){
+  const slides = document.querySelectorAll('.tc-slider .tc');
+  const dots   = document.querySelectorAll('.tc-dot');
+  if (!slides.length) return;
+
+  let cur = 0;
+  let busy = false;
+
+  function goTo(next) {
+    if (busy || next === cur) return;
+    busy = true;
+
+    const outEl = slides[cur];
+    const inEl  = slides[next];
+
+    // Fire both simultaneously — no gap
+    outEl.classList.remove('active');
+    outEl.classList.add('exiting');
+    inEl.classList.add('entering');
+
+    inEl.addEventListener('animationend', () => {
+      outEl.classList.remove('exiting');
+      inEl.classList.remove('entering');
+      inEl.classList.add('active');
+      busy = false;
+    }, { once: true });
+
+    cur = next;
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  // Auto-advance every 2.8s
+  let timer = setInterval(() => goTo((cur + 1) % slides.length), 2800);
+
+  // Dot clicks
+  dots.forEach((d, i) => d.addEventListener('click', () => {
+    clearInterval(timer);
+    goTo(i);
+    timer = setInterval(() => goTo((cur + 1) % slides.length), 2800);
+  }));
 })();
