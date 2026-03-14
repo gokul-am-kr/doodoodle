@@ -118,7 +118,7 @@ document.querySelectorAll('.btn-pri, .n-cta').forEach(btn => {
   const form      = document.getElementById('enroll-form');
   const planBadge = document.getElementById('enroll-plan-badge');
 
-  const RAZORPAY_KEY_ID = 'rzp_test_SOoJoUFladfv69';
+  const RAZORPAY_KEY_ID = 'rzp_live_SR4M6CNZ1exEnX';
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyU_Q4PHysh3SkU88u7Ypec955qy7n80XsDEUsoyj9csmgFLKdmixmyT_xbbQ3EoIqyIA/exec';
 
   let selectedPlan = { label: 'Lifetime Access — ₹1,499', amount: 149900, plan: 'lifetime' };
