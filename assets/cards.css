@@ -1,0 +1,320 @@
+/* Paper notes, sketchbook pages and little tickets for the important bits. */
+.process, .course-grid, .offer-grid, .event-cards { gap: 28px; }
+.process article, .course-card, .offer, .event-card {
+  position: relative;
+  min-width: 0;
+  isolation: isolate;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card-art { position: relative; height: 138px; margin-bottom: 24px; display: grid; place-items: center; }
+.card-art::before { content: ''; position: absolute; width: 130px; height: 116px; border-radius: 44% 56% 63% 37% / 52% 41% 59% 48%; background: var(--card-accent, #ffcf40); transform: rotate(-9deg); z-index: -1; }
+.card-art img { width: 100px; height: 100px; object-fit: contain; transform: rotate(7deg); }
+.card-art::after { content: '✦'; position: absolute; right: calc(50% - 90px); top: 7px; font-size: 29px; color: #526ce6; transform: rotate(14deg); }
+
+/* Benefits feel like notes pinned to a creative desk. */
+.process article { background: #fff2bb; border: 1.5px solid #20211f; border-radius: 7px 7px 30px 7px; box-shadow: 5px 7px 0 #20211f; padding: 30px; min-height: 310px; }
+.process article:nth-child(2) { background: #fce1e8; border-radius: 22px 7px 7px 7px; }
+.process article:nth-child(3) { background: #def0e6; border-radius: 7px 28px 7px 7px; }
+.process article::before { content: ''; position: absolute; top: -12px; left: calc(50% - 32px); width: 64px; height: 25px; background: #fffdf8c9; border-inline: 1px dashed #a49d8b; transform: rotate(-5deg); box-shadow: 0 1px 2px #20211f12; }
+.process .number { background: #fffdf8!important; border-radius: 42% 58% 49% 51%; width: 55px; height: 55px; box-shadow: 2px 3px 0 #20211f; margin-bottom: 53px; transform: rotate(-7deg); font-size: 1.5rem; }
+.process article::after { content: ''; position: absolute; width: 104px; height: 100px; right: 28px; top: 20px; background: url('illustrations/pencil-comet.svg') center / contain no-repeat; transform: rotate(9deg); pointer-events: none; }
+.process article:nth-child(2)::after { background-image: url('illustrations/breathing-loop.svg'); transform: rotate(-6deg); }
+.process article:nth-child(3)::after { background-image: url('illustrations/idea-sprout.svg'); }
+.process article h3 { font-size: 1.65rem; }
+.process article p { margin-bottom: 0; max-width: 32ch; }
+#how .process article { background: #fffdf8; background-image: none; }
+#how .process article::before {
+  background: #ffdf7acc;
+  border-inline: 1px dashed #bfa035;
+  box-shadow: 0 1px 3px #20211f18;
+  z-index: 2;
+}
+#how .process article:nth-child(2)::before {
+  background: #ffb8c7cc;
+  border-inline: 1px dashed #cc6a82;
+  transform: rotate(3deg);
+}
+#how .process article:nth-child(3)::before {
+  background: #b5e8d3cc;
+  border-inline: 1px dashed #64a689;
+  transform: rotate(-2deg);
+}
+#how .process article:nth-child(1)::after { background-image: url('illustrations/shape-play.svg'); }
+#how .process article:nth-child(2)::after { background-image: url('illustrations/character-pencil.svg'); }
+#how .process article:nth-child(3)::after { background-image: url('illustrations/story-pages.svg'); }
+
+/* Course layout: Full-view two-column layout fitting in a single screen view without scrolling */
+#course {
+  min-height: calc(100vh - 76px);
+  min-height: calc(100dvh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 6vh, 80px) 0;
+  box-sizing: border-box;
+  scroll-margin-top: 76px;
+}
+.course-split.wrap {
+  width: min(1360px, calc(100% - 48px));
+  max-width: 1360px;
+}
+.course-split {
+  display: grid;
+  grid-template-columns: 1fr 1.62fr;
+  gap: clamp(28px, 3.2vw, 48px);
+  align-items: center;
+  width: 100%;
+}
+.course-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.course-intro .eyebrow {
+  margin-bottom: 10px;
+  font-size: .88rem;
+  letter-spacing: .08em;
+}
+.course-intro h2 {
+  font-size: clamp(2.3rem, 3.5vw, 3.5rem);
+  line-height: 1.04;
+  margin-bottom: 14px;
+  letter-spacing: -.04em;
+}
+.course-intro > p {
+  font-size: clamp(1.02rem, 1.2vw, 1.18rem);
+  line-height: 1.5;
+  color: #303749;
+  margin-bottom: 16px;
+  max-width: 44ch;
+}
+.course-pill-wrap {
+  margin-bottom: 16px;
+}
+.course-pill-wrap .pill {
+  font-size: clamp(.82rem, 0.9vw, .92rem);
+  padding: 7px 18px;
+  font-weight: 600;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.course-intro .finale {
+  margin-top: 6px;
+  padding: clamp(20px, 2.5vh, 26px) clamp(22px, 2vw, 28px);
+  background: var(--yellow) !important;
+  border: 2px solid var(--ink);
+  border-radius: 16px 28px 16px 28px;
+  box-shadow: 6px 7px 0 var(--ink);
+  min-height: auto;
+  grid-column: auto;
+  width: 100%;
+  position: relative;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.course-intro .finale::before {
+  content: '✉';
+  position: absolute;
+  right: 20px;
+  top: -14px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.85rem;
+  background: #fffdf8;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(8deg);
+  display: grid;
+  place-items: center;
+  margin-top: 0;
+}
+.course-intro .finale::after { display: none; }
+.course-intro .finale .phase {
+  min-height: 0;
+  color: #3b3a2d;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.course-intro .finale h3 {
+  font-size: clamp(1.4rem, 1.7vw, 1.7rem);
+  margin: 7px 0 6px;
+  line-height: 1.15;
+}
+.course-intro .finale p {
+  font-size: clamp(.92rem, 1.05vw, 1.02rem);
+  line-height: 1.45;
+  margin-bottom: 12px;
+  color: #2b2b2b;
+}
+.course-intro .finale .lessons {
+  font-size: clamp(.88rem, 1vw, .96rem);
+  font-weight: 700;
+  border-top: 1.5px dashed #9d8225;
+  padding-top: 10px;
+  margin-top: 0;
+  max-width: none;
+}
+.course-note {
+  margin-top: 12px;
+  color: #4b5263;
+  font-size: .82rem;
+  margin-bottom: 0;
+}
+
+/* Course chapters are spacious index cards in a 3x2 grid */
+.course-grid {
+  counter-reset: chapter;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.4vw, 20px);
+  padding-top: 6px;
+}
+.course-card {
+  counter-increment: chapter;
+  --tab: #ffcf40;
+  background: #fffdf8;
+  border: 2px solid var(--ink);
+  border-radius: 6px 24px 24px 6px;
+  box-shadow: 4px 5px 0 #a5b4de, 5px 6px 0 var(--ink);
+  padding: clamp(22px, 2.6vh, 28px) clamp(16px, 1.4vw, 22px) clamp(16px, 2vh, 20px) clamp(24px, 2vw, 30px);
+  min-height: clamp(235px, 28vh, 290px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.course-card:nth-child(3n + 2) { --tab: #ffafc0; }
+.course-card:nth-child(3n) { --tab: #99d9bf; }
+.course-card::before {
+  content: '0' counter(chapter);
+  position: absolute;
+  right: 14px;
+  top: -12px;
+  width: 40px;
+  height: 46px;
+  background: var(--tab);
+  border: 1.5px solid #20211f;
+  border-radius: 6px 6px 14px 6px;
+  display: grid;
+  place-items: center;
+  font: 600 1.15rem 'Fredoka', sans-serif;
+  transform: rotate(5deg);
+  box-shadow: 2px 2px 0 var(--ink);
+  z-index: 2;
+}
+.course-card::after {
+  display: none;
+}
+.course-card .phase {
+  font-size: clamp(.72rem, 0.8vw, .78rem);
+  letter-spacing: .04em;
+  padding-right: 48px;
+  min-height: 26px;
+  color: #3b50a8;
+  display: block;
+}
+.course-card h3 {
+  font-size: clamp(1.25rem, 1.45vw, 1.48rem);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  line-height: 1.18;
+  letter-spacing: -.02em;
+}
+.course-card p {
+  font-size: clamp(.86rem, 0.96vw, .95rem);
+  line-height: 1.45;
+  color: #3a3d38;
+  margin-bottom: 0;
+}
+.course-card .lessons {
+  border-top: 1.5px dashed #b9b6ac;
+  padding-top: 10px;
+  margin-top: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: clamp(.8rem, 0.9vw, .88rem);
+  font-weight: 700;
+}
+.course-card .lessons::before {
+  content: '↳';
+  font-size: 1.15rem;
+  line-height: 1;
+  color: #526ce6;
+}
+
+/* Enrolment choices have the visual language of event tickets. */
+.offer-grid { align-items: stretch; padding-top: 18px; }
+.offer { --card-accent: #dce7ff; padding: 30px; border: 1.5px solid #20211f; border-radius: 24px 24px 9px 9px; background: #fffdf8; box-shadow: 6px 7px 0 #d6cfbe; }
+.offer:nth-child(3) { --card-accent: #bde6cc; }
+.offer.highlight { --card-accent: #fff3b7; background: #ffcf40; border-width: 2px; box-shadow: 7px 8px 0 #20211f; }
+.offer.highlight::before { content: 'A little mark. A lifetime of making.'; position: absolute; top: -17px; left: 50%; width: max-content; max-width: 95%; transform: translateX(-50%) rotate(-3deg); background: #20211f; color: #fffdf8; padding: 8px 15px; border-radius: 5px; font-size: .72rem; letter-spacing: .02em; }
+.offer .eyebrow { font-size: .72rem; letter-spacing: .1em; margin-bottom: 10px; }
+.offer h3 { font-size: 1.8rem; margin-bottom: 12px; }
+.offer .price { width: fit-content; position: relative; z-index: 0; font-size: 2.8rem; margin-bottom: 20px; }
+.offer .price::after { content: ''; position: absolute; left: -5px; right: -8px; height: 13px; bottom: 5px; border-radius: 60% 30% 50% 20%; transform: rotate(-3deg); background: var(--card-accent); z-index: -1; }
+.offer > p { font-size: .94rem; }
+.offer ul { list-style: none; padding-left: 0; padding-bottom: 23px; border-bottom: 2px dashed #20211f44; }
+.offer li { position: relative; padding-left: 25px; margin-bottom: 11px; font-size: .9rem; }
+.offer li::before { content: '✓'; position: absolute; left: 0; color: #425a46; font-weight: 700; transform: rotate(-10deg); }
+.offer .btn { width: 100%; margin-top: auto; text-align: center; justify-content: center; }
+.offer small { display: block; margin-top: 14px; line-height: 1.5; }
+.notify-strip { border: 1.5px dashed #20211f; border-radius: 9px; box-shadow: none; background: #fffdf8; }
+
+/* A review is a note from a real person, with a folded paper corner. */
+.reviews.slider { max-width: 820px; padding-top: 12px; }
+.reviews.slider .review { position: relative; padding: 55px 48px 32px; border: 1.5px solid #20211f; border-radius: 6px 6px 36px 6px; background: #fffdf3; background-image: repeating-linear-gradient(transparent 0 31px, #e5e8df 31px 32px); box-shadow: 6px 7px 0 #8cb9a2; min-height: 265px; }
+.review::before { content: '“'; position: absolute; top: -25px; left: 27px; color: #526ce6; font: 100px Georgia, serif; line-height: 1; transform: rotate(-9deg); }
+.review::after { content: ''; position: absolute; top: -12px; right: 45px; width: 85px; height: 26px; background: #f3cf74b8; transform: rotate(7deg); }
+.review p { font-family: 'Fredoka', sans-serif; font-size: 1.45rem; line-height: 1.5; font-weight: 400; }
+.review strong { display: block; margin-top: 18px; }
+.review span { font-size: .85rem; }
+.faq details { border-width: 1px; border-radius: 8px 18px 8px 8px; box-shadow: 3px 3px 0 #d6cfbe; border-left: 6px solid #99d9bf; }
+.faq details:nth-child(3n + 2) { border-left-color: #ffcf40; }
+.faq details:nth-child(3n) { border-left-color: #ff8ca4; }
+.faq details[open] { background: #fffaf0; }
+
+/* Carry the same paper treatment onto the event information cards. */
+.event-card { --card-accent: #ffcf40; border: 1.5px solid #20211f; border-radius: 8px 26px 8px 8px; box-shadow: 5px 6px 0 #20211f; padding: 28px; background: #fff6d5; }
+.event-card:nth-child(2) { --card-accent: #ffafc0; background: #ffeaf0; }
+.event-card:nth-child(3) { --card-accent: #99d9bf; background: #e7f3eb; }
+.event-card h3 { font-size: 1.6rem; }
+.event-card p { margin-bottom: 0; }
+
+/* The instructor portrait is a pencil study mounted like a sketchbook page. */
+.instructor-sketch { margin: 0; position: relative; padding: 16px 16px 0; background: #fffdf8; border: 1px solid #bdb7a6; border-radius: 4px 15px 5px 5px; box-shadow: 8px 9px 0 #f0eadd; }
+.instructor-sketch::before { content: ''; position: absolute; z-index: 1; top: -13px; left: calc(50% - 44px); width: 88px; height: 29px; background: #eedcabbd; border-inline: 1px dashed #b6aa89; transform: rotate(-5deg); }
+.instructor-sketch > img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; transition: transform .2s ease; }
+.instructor-sketch figcaption { display: flex; gap: 12px; align-items: baseline; justify-content: space-between; padding: 15px 5px 18px; border-top: 1px solid #e8e2d6; font-family: 'Fredoka', sans-serif; font-size: 1.35rem; }
+.instructor-sketch figcaption span { font-family: 'DM Sans', sans-serif; font-size: .8rem; color: #65655f; }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .process article:hover, .event-card:hover { transform: translateY(-5px) rotate(-.6deg); box-shadow: 7px 10px 0 #20211f; }
+  .course-card:hover { transform: translateY(-4px); box-shadow: 5px 6px 0 #a5b4de, 6px 7px 0 var(--ink); }
+  .course-intro .finale:hover { transform: translateY(-4px) rotate(-.5deg); box-shadow: 7px 8px 0 var(--ink); }
+}
+@media (max-width: 1040px) {
+  #course { min-height: auto; padding: clamp(50px, 7vh, 80px) 0; }
+  .course-split { grid-template-columns: 1fr; gap: 32px; }
+  .course-intro { max-width: 680px; }
+  .course-split .course-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .course-card { min-height: 200px; }
+}
+@media (max-width: 900px) {
+  .process, .offer-grid, .event-cards { gap: 25px; }
+  .offer { padding: 25px; }
+}
+@media (max-width: 640px) {
+  #course { padding: 45px 0; }
+  .course-split .course-grid { grid-template-columns: 1fr; gap: 14px; }
+  .course-card { min-height: 180px; padding: 20px 16px 16px 24px; }
+  .course-intro .finale { padding: 20px 18px; }
+  .course-intro .finale::before { position: relative; top: auto; right: auto; margin: 0 0 10px; width: 44px; height: 44px; font-size: 1.6rem; }
+  .process article { min-height: 270px; padding: 25px; }
+  .process .number { margin-bottom: 40px; }
+  .offer-grid { gap: 36px; }
+  .card-art { height: 120px; }
+  .reviews.slider .review { padding: 43px 25px 28px; }
+  .review p { font-size: 1.2rem; }
+  .event-card { padding: 24px; }
+}

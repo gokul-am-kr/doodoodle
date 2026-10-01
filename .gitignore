@@ -2,3 +2,9 @@
 
 # Config file with live keys — commit config.example.js instead
 js/config.js
+
+.env
+node_modules/
+test-results/
+.DS_Store
+old/js/config.js

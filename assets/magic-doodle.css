@@ -1,0 +1,241 @@
+/* Magic Doodle Living Character Studio Styles */
+
+/* Canvas top bar layout */
+.canvas-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 18px;
+  background: #fdfaf2;
+  border-bottom: 2px solid var(--ink);
+}
+
+.canvas-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-spark-prompt {
+  background: #fffdf8;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-spark-prompt:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--ink);
+  background: var(--yellow);
+}
+
+.btn-spark-prompt:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* Prompt Banner */
+.doodle-prompt-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  background: #ffeaf0;
+  border-bottom: 1.5px dashed #e89fb0;
+  font-size: .88rem;
+  color: #3b2830;
+  animation: promptSlide .25s ease-out;
+}
+
+.doodle-prompt-banner strong {
+  color: #b82b54;
+  font-weight: 700;
+}
+
+.btn-prompt-reroll {
+  background: transparent;
+  border: 1px dashed #b82b54;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #b82b54;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-prompt-reroll:hover {
+  background: #fffdf8;
+}
+
+@keyframes promptSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Drawing Toolbar & Accessories */
+.drawing-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #fffdf8;
+  border-top: 2px solid var(--ink);
+}
+
+.drawing-tools-left,
+.drawing-tools-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Bring to Life magical button */
+.btn-bring-to-life {
+  background: var(--yellow) !important;
+  border: 2px solid var(--ink) !important;
+  border-radius: 999px !important;
+  padding: 8px 18px !important;
+  font-family: 'Fredoka', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink) !important;
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-bring-to-life:hover {
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 4px 5px 0 var(--ink) !important;
+  background: #ffe366 !important;
+}
+
+.btn-bring-to-life.active {
+  background: #99d9bf !important;
+  box-shadow: 3px 3px 0 var(--ink) !important;
+}
+
+.btn-bring-to-life.active::after {
+  content: '✓';
+  font-size: .9rem;
+  margin-left: 2px;
+}
+
+/* Props / Accessories Picker */
+.doodle-props-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #f7f3ea;
+  border-top: 1px dashed #d5ccbe;
+}
+
+.doodle-props-label {
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #6d6b63;
+  margin-right: 4px;
+}
+
+.btn-prop-stamp {
+  background: #fffdf8;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #cfc7b6;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.btn-prop-stamp:hover {
+  transform: translateY(-2px);
+  background: #fff2bb;
+  box-shadow: 2px 3px 0 var(--ink);
+}
+
+.btn-prop-stamp:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+/* Live Character Hint Badge */
+.living-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .76rem;
+  font-weight: 700;
+  color: #4057b5;
+  background: #eef3ff;
+  border: 1px solid #b3c6f7;
+  border-radius: 999px;
+  padding: 3px 10px;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.living-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #39b54a;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(82, 108, 230, 0.2); }
+  50% { box-shadow: 0 0 0 4px rgba(82, 108, 230, 0.15); }
+}
+
+/* Doodle canvas interactive cursor hint */
+#doodleCanvas {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+#doodleCanvas.grab-eyes {
+  cursor: grab;
+}
+
+#doodleCanvas.grabbing-eyes {
+  cursor: grabbing;
+}
+
+@media (max-width: 600px) {
+  .canvas-top { padding: 10px 14px; }
+  .canvas-top span { font-size: .8rem; }
+  .btn-spark-prompt { font-size: .75rem; padding: 4px 10px; }
+  .drawing-tools { padding: 12px 14px; flex-direction: column; align-items: stretch; gap: 10px; }
+  .drawing-tools-left, .drawing-tools-right { justify-content: space-between; width: 100%; }
+  .btn-bring-to-life { font-size: .9rem !important; padding: 7px 14px !important; }
+  .doodle-props-bar { padding: 8px 12px; gap: 5px; }
+  .btn-prop-stamp { font-size: .76rem; padding: 3px 8px; }
+}

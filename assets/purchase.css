@@ -1,0 +1,27 @@
+.purchase-complete .dialog-head{align-items:center;margin-bottom:4px}
+.purchase-complete .dialog-head h2{font-size:clamp(2rem,6vw,3rem);margin:0}
+.purchase-success{text-align:center;position:relative}
+.purchase-celebration{height:150px;display:grid;place-items:center;position:relative;margin:4px auto 12px;width:min(300px,100%)}
+.purchase-seal{width:102px;height:102px;background:#99d9bf;border:2px solid #20211f;border-radius:35% 46% 38% 44%;box-shadow:5px 6px 0 #20211f;display:grid;place-items:center;transform:rotate(-6deg);animation:purchase-pop .7s cubic-bezier(.16,1,.3,1) both}
+.purchase-seal svg{width:74px;height:74px;transform:rotate(6deg)}
+.purchase-seal path{stroke:#20211f;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:65;stroke-dashoffset:0;animation:purchase-check .5s ease .35s both}
+.purchase-star{position:absolute;color:#526ce6;font-size:36px;animation:purchase-twinkle .8s ease .2s both}
+.star-left{left:32px;top:20px}.star-right{right:27px;bottom:17px;color:#b37816;font-size:44px}
+.purchase-sparks{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.purchase-sparks i{position:absolute;width:7px;height:13px;border-radius:2px;background:#526ce6;opacity:0;animation:purchase-burst 1.2s ease-out calc(var(--i)*.025s) both}
+.purchase-sparks i:nth-child(3n){background:#ffcf40}.purchase-sparks i:nth-child(3n + 1){background:#ff8ca4;border-radius:50%}
+.purchase-success .eyebrow{font-size:.7rem;color:#65655f;letter-spacing:.12em;margin-bottom:12px}
+.purchase-success h3{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.12;max-width:400px;margin:0 auto 16px;letter-spacing:-.025em}
+.purchase-message{max-width:420px;margin:0 auto 24px;color:#55594f;font-size:1.02rem;line-height:1.65}
+.purchase-receipt{display:grid;grid-template-columns:1fr auto;gap:12px;text-align:left;background:#f3efdf;border:1px dashed #b8b3a3;border-radius:16px;padding:18px;font-size:.85rem;margin:0 0 20px}
+.purchase-receipt strong{font-size:1.12rem;text-align:right}.purchase-reference{font-size:.8rem;overflow-wrap:anywhere;min-width:0;text-align:right}
+.purchase-delivery-note{background:#fff4d4;border-radius:12px;padding:14px;margin:0 0 20px;font-size:.88rem;line-height:1.6;color:#655126;text-align:left}
+.purchase-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.purchase-actions .btn{font-size:.9rem;padding:12px 18px}
+.purchase-footnote{margin:22px 0 0;font-size:.76rem;color:#65655f}
+@keyframes purchase-pop{from{opacity:0;transform:translateY(15px) rotate(-16deg) scale(.65)}to{opacity:1;transform:translateY(0) rotate(-6deg) scale(1)}}
+@keyframes purchase-check{from{stroke-dashoffset:65}to{stroke-dashoffset:0}}
+@keyframes purchase-twinkle{from{opacity:0;transform:scale(.3) rotate(-35deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes purchase-burst{0%{opacity:0;transform:rotate(var(--turn)) translateY(-35px) scale(.5)}20%{opacity:1}100%{opacity:0;transform:rotate(var(--turn)) translateY(-100px) rotate(80deg) scale(.7)}}
+@media(max-width:420px){.purchase-receipt{grid-template-columns:minmax(0,1fr);gap:6px}.purchase-receipt strong,.purchase-reference{text-align:left}.purchase-receipt>span:nth-of-type(2){margin-top:8px}.purchase-actions{flex-direction:column}.purchase-actions .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){.purchase-seal,.purchase-seal path,.purchase-star,.purchase-sparks i{animation:none}.purchase-sparks{display:none}}

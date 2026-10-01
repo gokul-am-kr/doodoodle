@@ -1,0 +1,10 @@
+/* Lenis drives scrolling; CSS smoothing would compete with its animation. */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

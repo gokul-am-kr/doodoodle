@@ -1,0 +1,93 @@
+/* Doo Doodle Initial Animation */
+.brand-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+.brand-intro.intro-done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-drawing {
+  position: absolute;
+  width: min(94vw, 1000px);
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+
+.intro-logo {
+  position: fixed;
+  width: min(30vw, 320px);
+  height: min(30vw, 320px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  object-fit: contain;
+  pointer-events: none;
+  transition: left .85s cubic-bezier(.65, 0, .2, 1),
+              top .85s cubic-bezier(.65, 0, .2, 1),
+              width .85s cubic-bezier(.65, 0, .2, 1),
+              height .85s cubic-bezier(.65, 0, .2, 1),
+              opacity .3s ease;
+}
+
+.intro-caption {
+  position: absolute;
+  top: calc(50% + min(24vw, 220px));
+  width: 100%;
+  text-align: center;
+  max-width: none;
+  font-family: 'Fredoka', 'DM Sans', sans-serif;
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #65655f;
+  animation: intro-caption .8s .4s both;
+}
+
+.intro-skip {
+  position: absolute;
+  right: 28px;
+  bottom: 25px;
+  border: 1.5px solid #20211f;
+  border-radius: 999px;
+  background: #fffdf8;
+  padding: 9px 20px;
+  color: #20211f;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 2px 2px 0 #20211f;
+  cursor: pointer;
+  z-index: 1001;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.intro-skip:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #20211f;
+  background: #ffcf40;
+}
+
+@keyframes intro-caption {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-intro { display: none !important; }
+}
